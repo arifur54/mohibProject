@@ -1,29 +1,37 @@
 const express  = require('express');
 const cors = require('cors');
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
+const admin = require("./routes/admin.routes")
 
-require('dotenv').config();
+//require('dotenv').config();
 
 // Configuring express and port
 const app = express();
-const port = process.env.PORT || 5000;
+//const port = process.env.PORT || 8000;
 
 app.use(cors());
 app.use(express.json());
 
+app.use("/admin", admin);
+app.use("*", (req, res) => res.status(404).json({ error: "Page Not Found"}))
+
+
+module.exports = app;
+
 // Database URI
-const uri = process.env.ATLAS_URI;
+// const uri = process.env.ATLAS_URI;
 
-// Database Connections 
-mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true});
-const connetion = mongoose.connection;
+// Database Config
+// mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true});
+// const connetion = mongoose.connection;
 
-connetion.once('open', () => {
-    console.log("MongoDB database connection established successfully")
-});
+// // DB connect
+// connetion.once('open', () => {
+//     console.log("MongoDB database connection established successfully")
+// });
 
-// Requiring Router
-const adminRouter = require('./routes/admin');
+// Requering Router
+// const adminRouter = require('./routes/admin');
 
 // Using router 
 //app.use('/admin', adminRouter);
@@ -32,6 +40,6 @@ const adminRouter = require('./routes/admin');
 
 
 // Listning for port
-app.listen(port, ()=>{
-    console.log(`server running on port: ${port}`);
-})
+// app.listen(port, ()=>{
+//     console.log(`server running on port: ${port}`);
+// })

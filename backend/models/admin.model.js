@@ -2,7 +2,13 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const userSchema = new Schema({
+const adminSchema = new Schema({
+    name: {
+        type: String,
+        required: true,
+        trim: true,
+        minlength:2
+    },
     username: {
         type: String,
         required: true,
@@ -13,9 +19,16 @@ const userSchema = new Schema({
     password: {
         type: String,
         require: true,
-        unique: true,
         trim: true,
         minlength: 8
+    },
+    passwordSalt: {
+        type: String
+    },
+    confirm: {
+        type: Boolean,
+        required: true,
+        default: false
     }
 },
     {
@@ -23,6 +36,7 @@ const userSchema = new Schema({
 });
 
 
-const Admin = mongoose.model('Admin', userSchema);
 
-module.exports = Admin;
+const Admin = mongoose.model('Admin', adminSchema);
+
+module.exports = Admin

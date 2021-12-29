@@ -2,7 +2,7 @@
   "name": "projectbackend",
   "version": "1.0.0",
   "description": "Home renovation application and portfolio",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,6 +12,7 @@
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.2",
+    "lodash": "^4.17.21",
     "mongoose": "^6.1.3"
   }
 }
