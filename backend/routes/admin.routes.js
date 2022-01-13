@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Admin = require('../controller/admin.contoller');
+const Admin = require('../controller/admin.controller');
 
 
 router.get('/findAll', Admin.findAll)

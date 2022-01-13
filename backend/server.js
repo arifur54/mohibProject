@@ -2,6 +2,8 @@ const express  = require('express');
 const cors = require('cors');
 // const mongoose = require('mongoose');
 const admin = require("./routes/admin.routes")
+const service = require("./routes/services.routes")
+const projects = require("./routes/projects.routes");
 
 //require('dotenv').config();
 
@@ -13,6 +15,9 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/admin", admin);
+app.use("/service", service)
+app.use("/projects", projects)
+app.use("/uploads", express.static('uploads'))
 app.use("*", (req, res) => res.status(404).json({ error: "Page Not Found"}))
 
 

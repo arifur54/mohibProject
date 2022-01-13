@@ -16,13 +16,7 @@ mongoose.connect(uri,
     });
     
     
-//     .then(async client => {
-      
 
-//         app.listen(port, () => {
-//         console.log(`server running on port: ${port}`);
-//     })
-// })
 
 
 const connection = mongoose.connection;

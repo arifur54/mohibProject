@@ -22,16 +22,6 @@ let addAdmin = async function (req, res) {
     console.log(data)
     try {
         addAdmin = await Admin.create(data);
-        // await addAdmin.save((err, data) => {
-        //     if(err){
-        //         console.log(`error ${err}`)
-        //     }else{
-        //         res.status(200).send({
-        //             msg: 'User Added!',
-        //             data: data
-        //         })
-        //     }
-        // });
 
         res.status(200).send({
             msg: 'User Added!',
