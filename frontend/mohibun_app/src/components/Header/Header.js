@@ -1,11 +1,14 @@
 import React from 'react'
 import styled  from 'styled-components';
+import Routes from '../../routes'
+import {Link} from 'react-router-dom'
 
 function Header() {
     return (
+        <div>
         <NavWrap>
             <nav className="navbar navbar-expand-lg navbar-light">
-                <a className="navbar-brand" href="#">Logo Goes here</a>
+                <Link to="/" className='navbar-brand'>Logo Goes here </Link>
                 <button 
                     className="navbar-toggler" 
                     type="button" 
@@ -20,21 +23,28 @@ function Header() {
                 <div className="collapse navbar-collapse "  id="navbarNav">
                     <ul className="navbar-nav mx-lg-auto text-center">
                         <li className="nav-item active">
-                            <a className="nav-link" href="#">Home</a>
+                            <Link className="nav-link" to="/" >Home</Link>
+
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">Services</a>
+                            <Link className="nav-link" to="/services" >Services</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">Project</a>
+                            <Link className="nav-link" to="/projects" >Projects</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">Contact Us</a>
+                            <Link className="nav-link" to="/contactus" >Contact Us</Link>
                         </li>
                     </ul>
                 </div>
             </nav>
+        
         </NavWrap>
+        <div>
+                <Routes />
+        </div>
+
+        </div>
     )
 }
 

@@ -19,7 +19,7 @@ export default MainSection
 
 const Wrap = styled.div`
     width: 100vw;
-    height: 100vh;
+    height: 93vh;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -36,7 +36,7 @@ const ItemText = styled.div`
         color: #fff;
         font-size: 5em;
         padding: 20px;
-        margin: 11px;
+        // margin: 11px;
     }
 
     p {
@@ -47,7 +47,7 @@ const ItemText = styled.div`
 
 const Downarrow = styled.img`
     height: 100px;
-    margin: 100px;
+    // margin: 100px;
     animation: animateDown infinite 1.5s;
     overflow-x: hidden;
 `

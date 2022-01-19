@@ -1,15 +1,17 @@
 import React from 'react'
-import {Container} from '../Styled/container.styled'
 import MainSection from './MainSection';
 import Section2 from './Section2';
+import Section3 from './Section3';
 
 
 function Home() {
     return (
-        <Container>
+        <div>
             <MainSection />
             <Section2 />
-        </Container>
+            <Section3 />
+        </div>
+ 
     )
 }
 
