@@ -1,9 +1,15 @@
-import React from 'react'
+import React from 'react';
+import Bathroom from './bathroom';
+import Basement from './basement';
+import Kitchen from './kitchen';
+import Whole_house from './whole_house';
+
 
 function services() {
     return (
         <div>
-            <h1>This is Service Page</h1>
+           <Kitchen/>
+           <Basement/>
         </div>
     )
 }
