@@ -9,7 +9,6 @@
 body{
   width: 100%;
   overflow-x: hidden;
-  
 }
 
 
@@ -25,4 +24,21 @@ body{
   60% {
     transform: translateY(5px);
   }
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 5px #37b4e6, 0 0 10px #1d82ab, 0 0 15px #577a9e, 0 0 20px #3b7cbf, 0 0 25px #2979cc, 0 0 30px #167ae0, 0 0 40px #0979eb;
+  }
+  
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #504487, 0 0 40px #4e3d9c, 0 0 50px #4630ab, 0 0 60px #4022c9, 0 0 70px #3814db, 0 0 80px #330be6;
+  }
+}
+
+@keyframes name-of-animation {
+  0%    { opacity: 0; }
+  20%   { opacity: 1; }
+  80%   { opacity: 0; }
+  100%  { opacity: 1; }
 }

@@ -36,12 +36,14 @@ const ItemText = styled.div`
         color: #fff;
         font-size: 5em;
         padding: 20px;
+        text-shadow: 1px 1px #000000;
         // margin: 11px;
     }
 
     p {
        color: rgb(60, 61, 61);;
        font-size: 2.5em;
+       text-shadow: 1px 1px #fff;
     }
 `
 

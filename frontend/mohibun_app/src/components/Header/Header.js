@@ -30,19 +30,20 @@ function Header() {
 
                         </li>
                         <li className="nav-item dropdown">
-                            <Link className="nav-link dropdown-toggle" onClick={toggleOpen} to="#" id="navbarDropdown"
-                            data-toggle="dropdown" aria-haspopup="true" 
-                            aria-expanded="false">Services</Link>
-                            <div className={`dropdown-menu ${dropdown ? 'show' : ''}`} aria-labelledby="navbarDropdown">
-                                <Link className='dropdown-item' onClick={toggleOpen} to='services/kitchen'>Kitchen</Link>
-                                <Link className='dropdown-item' onClick={toggleOpen} to='services/bathroom'>Bathroom</Link>
-                                <Link className='dropdown-item' onClick={toggleOpen} to='services/Basement'>Basement</Link>
-                                <Link className='dropdown-item' onClick={toggleOpen} to='services/whole_house'>Whole House</Link>
-                            </div>
+                            <Link className="nav-link" to="/services" >Services</Link>
                         </li>
 
                         <li className="nav-item">
-                            <Link className="nav-link" to="/projects" >Projects</Link>
+                            {/* <Link className="nav-link" to="/projects" >Projects</Link> */}
+                            <Link className="nav-link dropdown-toggle" onClick={toggleOpen} to="#" id="navbarDropdown"
+                            data-toggle="dropdown" aria-haspopup="true" 
+                            aria-expanded="false">Projects</Link>
+                            <div className={`dropdown-menu ${dropdown ? 'show' : ''}`} aria-labelledby="navbarDropdown">
+                                <Link className='dropdown-item' onClick={toggleOpen} to='projects/kitchen'>Kitchen</Link>
+                                <Link className='dropdown-item' onClick={toggleOpen} to='projects/bathroom'>Bathroom</Link>
+                                <Link className='dropdown-item' onClick={toggleOpen} to='projects/Basement'>Basement</Link>
+                                <Link className='dropdown-item' onClick={toggleOpen} to='projects/whole_house'>Whole House</Link>
+                            </div>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/contactus" >Contact Us</Link>
