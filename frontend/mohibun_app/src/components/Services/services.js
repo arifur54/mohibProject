@@ -1,6 +1,8 @@
 import React from 'react';
 import SectionType from './sectionType'
 import styled from 'styled-components';
+import Services_kitchen from './services_kitchen';
+import Services_bathroom from './services_bathroom';
 
 
 function services() {
@@ -9,10 +11,11 @@ function services() {
             <OurServiceWrapper>
                 <h1 className='text-white'>Our Service</h1>
             </OurServiceWrapper>
-            <SectionType
+            <Services_kitchen />
+            <Services_bathroom />
+            {/* <SectionType
                 bg_colour='bg-dark'
                 text_colour='text-white'
-                // alter="true"
                 type='Kitchen Renovations'
                 paragraph="Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                 Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
@@ -26,7 +29,6 @@ function services() {
             <SectionType
                 bg_colour='bg-white'
                 text_colour='text-dark'
-                // alter="false"
                 type='Bathroom Renovations'
                 paragraph="Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                 Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
@@ -39,7 +41,6 @@ function services() {
             <SectionType
                 bg_colour='bg-dark'
                 text_colour='text-white'
-                // alter="true"
                 type='Basement Renovations'
                 paragraph="Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                 Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
@@ -53,7 +54,6 @@ function services() {
             <SectionType
                 bg_colour='bg-white'
                 text_colour='text-dark'
-                // alter="false"
                 type='Full House Renovations'
                 paragraph="Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                 Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
@@ -62,7 +62,8 @@ function services() {
                 essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
                 Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker
                 including versions of Lorem Ipsum."
-            />
+                images='/images/file17.jpeg'
+            /> */}
         </div>
     )
 }
@@ -70,7 +71,7 @@ function services() {
 export default services
 
 const OurServiceWrapper = styled.div`
-    background-image: url('/images/home1.jpg');
+    background-image: url('/images/file17.jpeg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

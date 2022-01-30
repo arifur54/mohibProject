@@ -9,17 +9,6 @@ function Section2() {
                 <div className='row'>
                     <div className='col-md-4 col-sm-12 mt-3'>
                         <CardAnimation>
-                            {/* <div className='card bg-dark text-light'>
-                                    <div className='card-body text-center'>
-                                        <button className='btn'>
-                                            <img className='card-img' src='/images/home1.jpg' alt="Card Image"/>
-                                            <div className='text-light'>
-                                                <h1 className='text-light'>Kitchen</h1>
-                                                <h6 className='text-light'>This is a kitchen</h6> 
-                                            </div>
-                                        </button>
-                                    </div>
-                                </div> */}
                             <button className='card bg-dark text-light'>
                                 <img className='card-img' src='/images/home1.jpg' alt="Card Image" />
                                 <div className='card-img-overlay'>
@@ -32,17 +21,6 @@ function Section2() {
 
                     <div className='col-md-4 col-sm-12 mt-3'>
                         <CardAnimation>
-                            {/* <div className='card bg-dark text-light'>
-                                <div className='card-body text-center'>
-                                    <button className='btn'>
-                                        <img className='img-fluid' src='/images/home1.jpg ' />
-                                        <div className='text-light'>
-                                            <h1 className='text-light'>Bathroom</h1>
-                                            <h6 className='text-light'>This is a Bathroom</h6>
-                                        </div>
-                                    </button>
-                                </div>
-                            </div> */}
                              <button className='card bg-dark text-light'>
                                 <img className='card-img' src='/images/home1.jpg' alt="Card Image" />
                                 <div className='card-img-overlay'>
@@ -54,17 +32,6 @@ function Section2() {
                     </div>
                     <div className='col-md-4 col-sm-12 mt-3'>
                         <CardAnimation>
-                            {/* <div className='card bg-dark text-light'>
-                                <div className='card-body text-center'>
-                                    <button className='btn'>
-                                        <img className='img-fluid' src='/images/home1.jpg' />
-                                        <div className='text-light'>
-                                            <h1 className='text-light'>Basement</h1>
-                                            <h6 className='text-light'>This is a Basement</h6>
-                                        </div>
-                                    </button>
-                                </div>
-                            </div> */}
                              <button className='card bg-dark'>
                                 <img className='card-img' src='/images/home1.jpg' alt="Card Image" />
                                 <div className='card-img-overlay'>
@@ -77,7 +44,7 @@ function Section2() {
                 </div>
             </div>
 
-            <div className='container'>
+            <div className='container-fluid p-5'>
                 <div className='d-sm-flex'>
                     <Textwrapper>
                         <h1>Write Header here</h1>
