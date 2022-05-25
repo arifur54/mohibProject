@@ -6,7 +6,7 @@ function ProjectsBasement() {
     <div>
       <ProjectType
         type='Basement'
-        title='This is the Kitchen Title'
+        title='This is the Basement Title'
         images='/images/file17.jpeg'
       />
     </div>

@@ -5,6 +5,7 @@ function projects(props) {
     let img = props.images;
     let type = props.type;
     let title = props.title;
+    
     const OurProjectWrapper = styled.div`
     background-image: url("${img}");
     padding-top: 3em;
@@ -20,7 +21,6 @@ function projects(props) {
         text-shadow: 1px 1px #000000;
         animation: glow 10s ease-in-out infinite alternate;
     }
-
 `
     return (
         <Wrapper>
@@ -29,28 +29,39 @@ function projects(props) {
             </OurProjectWrapper>
             <div className='container'>
                 <h2>{title}</h2>
-                <div className='d-flex justify-content-center align-items-center'>
-                    <div>
-                        <img className='img-fluid' src='/images/home1.jpg' />
+                <div className='row'>
+                    <div className='col-lg-4 col-md-6 col-sm-12 mb-4'>
+                        <button className="d-nonecard">
+                            <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" className="card-img-top" alt="..."></img>
+                                <div className="card-body">
+                                    <h5 className="card-title">Address will go here</h5>
+                                </div>
+                        </button>
                     </div>
-                    <div>
-                        <img className='img-fluid' src='/images/home1.jpg' />
+                    <div className='col-lg-4 col-md-6 col-sm-12 mb-4'>
+                        <button className="d-nonecard">
+                            <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" className="card-img-top" alt="..."></img>
+                                <div className="card-body">
+                                    <h5 className="card-title">Address will go here</h5>
+                                </div>
+                        </button>
                     </div>
-                    <div>
-                        <img className='img-fluid' src='/images/home1.jpg' />
+                    <div className='col-lg-4 col-md-6 col-sm-12 mb-4'>
+                        <button className="d-nonecard">
+                            <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" className="card-img-top" alt="..."></img>
+                                <div className="card-body">
+                                    <h5 className="card-title">Address will go here</h5>
+                                </div>
+                        </button>
                     </div>
-                    <img className='img-fluid' src='/images/home1.jpg' />
-                    <img className='img-fluid' src='/images/home1.jpg' />
-                    <img className='img-fluid' src='/images/home1.jpg' />
-                    <img className='img-fluid' src='/images/home1.jpg' />
-                    <img className='img-fluid' src='/images/home1.jpg' />
-                    <img className='img-fluid' src='/images/home1.jpg' />
-                    <img className='img-fluid' src='/images/home1.jpg' />
-                    <img className='img-fluid' src='/images/home1.jpg' />
-                    <img className='img-fluid' src='/images/home1.jpg' />
-                    <img className='img-fluid' src='/images/home1.jpg' />
-                    <img className='img-fluid' src='/images/home1.jpg' />
-                    <img className='img-fluid' src='/images/home1.jpg' />
+                    <div className='col-lg-4 col-md-6 col-sm-12 mb-4'>
+                        <button className="d-nonecard">
+                            <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" className="card-img-top" alt="..."></img>
+                                <div className="card-body">
+                                    <h5 className="card-title">Address will go here</h5>
+                                </div>
+                        </button>
+                    </div>
                 </div>
             </div>
         </Wrapper>
@@ -80,6 +91,7 @@ const Wrapper = styled.div`
     );
 
     h2 {
+        margin: 25px;
         opacity: 90%;
         color: white;
     }
@@ -88,5 +100,14 @@ const Wrapper = styled.div`
         padding: 2px;
         height: 25vh;
         width: 100wh;
+    }
+
+    button:{
+        flex: none;
+    }
+
+    button:hover{
+        background-color: #f0f0f5;
+        opacity: 80%;
     }
 `

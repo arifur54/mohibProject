@@ -11,6 +11,9 @@ import ProjectsKitchen from './components/Projects/projects_kitchen';
 import ProjectsBasement from './components/Projects/projects_basement';
 import ProjectsFullHouse from './components/Projects/projects_fullhouse';
 import ProjectsBathroom from './components/Projects/projects_bathroom';
+import ImageGallery from './components/Projects/Image_gallery/ImageGallery';
+import Register from './components/Admin/Register';
+import Login from './components/Admin/Login';
 
 function routes() {
     return (
@@ -29,8 +32,11 @@ function routes() {
                 <Route path='/projects/bathroom' element={<ProjectsBathroom />} />
                 <Route path='/projects/basement' element={<ProjectsBasement />} />
                 <Route path='/projects/fullhouse' element={<ProjectsFullHouse />} />
+                <Route path='/projects/image_gallery' element={<ImageGallery />} />
                 {/* </Route> */}
                 <Route path='/contactus' element={<ContactUs />} />
+                <Route path='/register' element={<Register />} />
+                <Route path='/login' element={< Login />} />
             </Routes>
         </div>
     )

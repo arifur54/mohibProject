@@ -5,48 +5,40 @@ const Schema = mongoose.Schema;
 const projectSchema = new Schema({
     projectType:{
         type: String,
+        required: true,
     },
     streetName: {
         type: String,
+        required: true,
     },
     location: {
         type: String,
+        required: true,
     },
     designType: {
         type: String,
+        required: true,
     },
     features: {
         type: String,
+        required: true,
     },
     ProjectOverview: {
-        type: String
+        type: String,
+        required: true,
+    },
+    projectBeforeID: {
+        type: mongoose.SchemaTypes.ObjectId,
+        ref: "beforeImage"
+    },
+    projectAfterID: {
+        type: mongoose.SchemaTypes.ObjectId,
+        ref: "afterImage"
     }
   
 }, {timestamps: true});
 
-// const extend = (Schema, obj) => (
-//     new mongoose.Schema(
-//       Object.assign({}, Schema.obj, obj)
-//     )
-//   );
-
-
-// const beforeImagesSchema = extend(projectSchema, {
-//     beforeImages:{
-//         type: String,
-//         required: true
-//     }
-// })
-
-// const afterImagesSchema = extend(projectSchema, {
-//     afterImages:{
-//         type: String,
-//         required: true
-//     }
-// })
 
 const Project = mongoose.model('projects', projectSchema);
-// const BeforeImage = mongoose.model("project_BeforeImages", beforeImagesSchema);
-// const AfterImage = mongoose.model("project_AfterImages", afterImagesSchema);
 
 module.exports = Project;

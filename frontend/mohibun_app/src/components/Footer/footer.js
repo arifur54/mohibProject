@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from 'react-router-dom'
 
 function footer() {
   return (
@@ -13,6 +14,8 @@ function footer() {
                 Here you can use rows and columns to organize your footer
                 content.
               </p>
+              
+                <Link className="btn btn-info" style={{color:"white"}} to='/login'>Admin login</Link>
             </div>
 
             {/* <hr className="clearfix w-100 d-md-none pb-3"> */}

@@ -5,15 +5,19 @@ const Schema = mongoose.Schema;
 const serviceSchema = new Schema({
     serviceType: {
         type: String,
+        required: true,
     },
     title: {
         type: String,
+        required: true,
     },
     sub_title: {
         type: String,
+        required: true,
     },
     decription: {
-        type: String
+        type: String,
+        required: true,
     },
     images: {
         type: String,

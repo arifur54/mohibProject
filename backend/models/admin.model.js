@@ -1,29 +1,24 @@
 const mongoose = require('mongoose');
 
+
 const Schema = mongoose.Schema;
 
 const adminSchema = new Schema({
-    name: {
+    username: {
         type: String,
         required: true,
         trim: true,
-        minlength:2
     },
-    username: {
+    email: {
         type: String,
         required: true,
         unique: true,
         trim: true,
-        minlength:4
     },
     password: {
         type: String,
         require: true,
         trim: true,
-        minlength: 8
-    },
-    passwordSalt: {
-        type: String
     },
     confirm: {
         type: Boolean,
@@ -34,7 +29,6 @@ const adminSchema = new Schema({
     {
      timesstamps: true,
 });
-
 
 
 const Admin = mongoose.model('Admin', adminSchema);
