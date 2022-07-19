@@ -7,7 +7,7 @@ var storage = multer.diskStorage({
         callback(null, 'uploads')
     },
     filename: function(req, file, callback){
-        var ext = file.originalname.substring(file.originalname.lastIndexOf("."));        
+        var ext = file.originalname.substring(file.originalname.lastIndexOf("."));      
         callback(null, `${file.fieldname}-${Date.now()}${ext}`)
     }
 })

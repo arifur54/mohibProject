@@ -84,24 +84,24 @@ export default sectionT;
 
 
 const Wrapper = styled.div`
-  background-color: hsl(218, 41%, 15%);
+  background-color: hsl(210, 47%, 61%);
   padding-bottom: 5em;
   background-image: radial-gradient(
       650px circle at 0% 0%, 
-      hsl(218, 41%, 35%) 15%,
-      hsl(218, 41%, 30%) 35%,
-      hsl(218, 41%, 20%) 75%,
-      hsl(218, 41%, 19%) 80%,
+      hsl(210, 47%, 70%) 15%,
+      hsl(210, 47%, 60%) 35%,
+      hsl(210, 47%, 50%) 75%,
+      hsl(210, 47%, 40%) 80%,
       transparent 100%
   ),
   radial-gradient(
-    1250px circle at 100% 100%, 
-    hsl(218, 41%, 45%) 15%,
-    hsl(218, 41%, 30%) 35%,
-    hsl(218, 41%, 20%) 75%,
-    hsl(218, 41%, 19%) 80%,
-    transparent 100%
-);
+      1250px circle at 100% 100%, 
+      hsl(210, 47%, 70%) 15%,
+      hsl(210, 47%, 60%) 35%,
+      hsl(210, 47%, 50%) 75%,
+      hsl(210, 47%, 50%) 80%,
+      transparent 100%
+  );
   h1{
     opacity: 80%;
     padding: 1.5em;
@@ -123,7 +123,6 @@ const Wrapper = styled.div`
     font-size: 1.5em;
   }
   img {
-    // padding: 0;
     padding: 2px;
     height: 35vh;
     width: 90vw;

@@ -1,27 +1,55 @@
 import React from 'react'
 import styled from 'styled-components';
+import {useFormik} from 'formik';
+import axios from 'axios';
+import * as Yup from 'yup';
 
 export default function Login() {
+    const formik = useFormik({
+        initialValues: {
+            email: "",
+            password: ""
+        },
+        validationSchema: Yup.object({
+            email: Yup.string().email("Email is invalid").required("Email required"),
+            password: Yup.string().min(8, 'Password must be at least 8 charaters long').required("Password Required")
+        }),
+        onSubmit: async (formData) => {
+            console.log(formData)
+            //axios will go here :)
+        }
+    })
+
   return (
     <Wrapper>
-        <h2 className='mb-5'>Admin Login</h2>
             <div className='row'>
               <div className='col-lg-4 col-md-4 col-sm-2 col-xs-2'>
 
               </div>
               <div className='col-lg-4 col-md-4 col-sm-8 col-xs-8'>
-                <form>
+              <h2 className='mb-5'>Admin Login</h2>
+                <form onSubmit={formik.handleSubmit}>
                       <div className="mb-3">
-                          <label className="form-label">Email address</label>
-                            <input type="text" className='form-control'></input>
-                              <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
+                            <label className="form-label">Email address</label>
+                            <input type="email" name="email" className='form-control' placeholder='Enter your email'
+                            onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.email}></input>
+                            {formik.touched.email && formik.errors.email && 
+                              <div className="alert alert-danger" role="alert">
+                                  <span>{formik.errors.email}</span>
+                              </div>
+                            }
                       </div>
                       <div className="mb-3">
-                          <label className="form-label">Password</label>
-                          <input className='form-control' type="password"></input>
-                      </div>
-                        
-                      <button type="button" className="btn btn-primary">Login</button>
+                            <label className="form-label">Password</label>
+                            <input className='form-control' type="password" name="password" placeholder='Enter your password'
+                            onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.password}></input>
+                            {formik.touched.password && formik.errors.password && 
+                                <div className="alert alert-danger" role="alert">
+                                    <span>{formik.errors.password}</span>
+                                </div>
+                            }
+                      </div>    
+                      <button type="submit" className="btn btn-primary">Login</button>
                 </form>
               </div>
               <div className='col-lg-4 col-md-4 col-sm-2 col-xs-2'>
@@ -76,5 +104,6 @@ const Wrapper = styled.div`
     button:hover{
         background-color: #f0f0f5;
         opacity: 80%;
+        color: black;
     }
 `

@@ -27,10 +27,26 @@ function projects(props) {
             <OurProjectWrapper>
                 <h1 className="text-center display-4 ">{type}</h1>
             </OurProjectWrapper>
-            <div className='container'>
+            <div className='container-fluid'>
                 <h2>{title}</h2>
                 <div className='row'>
-                    <div className='col-lg-4 col-md-6 col-sm-12 mb-4'>
+                    <div className='col-md-3 col-sm-12 mb-4'>
+                        <button className="d-nonecard">
+                            <img src="/images/file17.jpeg" className="card-img-top" alt="..."></img>
+                                <div className="card-body">
+                                    <h5 className="card-title">Address will go here</h5>
+                                </div>
+                        </button>
+                    </div>
+                    <div className='col-md-3 col-sm-12 mb-4'>
+                        <button className="d-nonecard">
+                            <img src="/images/home_renovation.jpg" className="card-img-top" alt="..."></img>
+                                <div className="card-body">
+                                    <h5 className="card-title">Address will go here</h5>
+                                </div>
+                        </button>
+                    </div>
+                    <div className='col-md-3 col-sm-12 mb-4'>
                         <button className="d-nonecard">
                             <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" className="card-img-top" alt="..."></img>
                                 <div className="card-body">
@@ -38,7 +54,7 @@ function projects(props) {
                                 </div>
                         </button>
                     </div>
-                    <div className='col-lg-4 col-md-6 col-sm-12 mb-4'>
+                    <div className='col-md-3 col-sm-12 mb-4'>
                         <button className="d-nonecard">
                             <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" className="card-img-top" alt="..."></img>
                                 <div className="card-body">
@@ -46,7 +62,7 @@ function projects(props) {
                                 </div>
                         </button>
                     </div>
-                    <div className='col-lg-4 col-md-6 col-sm-12 mb-4'>
+                    <div className='col-md-3 col-sm-12 mb-4'>
                         <button className="d-nonecard">
                             <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" className="card-img-top" alt="..."></img>
                                 <div className="card-body">
@@ -54,7 +70,15 @@ function projects(props) {
                                 </div>
                         </button>
                     </div>
-                    <div className='col-lg-4 col-md-6 col-sm-12 mb-4'>
+                    <div className='col-md-3 col-sm-12 mb-4'>
+                        <button className="d-nonecard">
+                            <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" className="card-img-top" alt="..."></img>
+                                <div className="card-body">
+                                    <h5 className="card-title">Address will go here</h5>
+                                </div>
+                        </button>
+                    </div>
+                    <div className='col-md-3 col-sm-12 mb-4'>
                         <button className="d-nonecard">
                             <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" className="card-img-top" alt="..."></img>
                                 <div className="card-body">
@@ -98,8 +122,8 @@ const Wrapper = styled.div`
 
     img {
         padding: 2px;
-        height: 25vh;
-        width: 100wh;
+        height: 35vh;
+        width: 22vw;
     }
 
     button:{

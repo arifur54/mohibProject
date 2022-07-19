@@ -6,8 +6,26 @@ const store = require('../config/multer');
 //router
 router.get('/getAll', project.getAll);
 
-router.post('/addProjectDecription', project.addProjectDecription);  
-router.post('/addBeforeImages',store.array('beforeImg', 25), project.addBeforeImages);
-router.post('/addAfterImages', store.array('afterImg', 25), project.addAfterImages);
+router.post('/addProjectDescription', store.fields([
+    {
+        name: "beforeImage", maxCount: 10
+    },
+    {
+        name: "afterImage", maxCount: 10 
+    }
+    ]), project.addProjectDescription);  
+
+router.put('/updateProjectDescription/:id', store.fields([
+    {
+        name: "beforeImage", maxCount: 10
+    },
+    {
+        name: "afterImage", maxCount: 10
+    }
+]) ,project.updateProjectDescription);
+
+
+router.delete('/deleteProjectDescription/:id', project.deleteProjectDescription);
+
 
 module.exports = router;

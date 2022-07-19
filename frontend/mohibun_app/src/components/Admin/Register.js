@@ -1,39 +1,93 @@
-import React from 'react'
+import React from 'react';
 import styled from 'styled-components';
+import {useFormik} from 'formik';
+import axios from 'axios';
+import * as Yup from 'yup';
 
-export default function Register() {
+export default function Register() { 
+  
+    const formik = useFormik({
+        initialValues: {
+            username: '',
+            email: '',
+            password: '',
+            confirmPassword: ''
+        },
+        validationSchema: Yup.object({
+            username: Yup.string().max(15, 'Must be 15 charcters or less').required("required"),
+            email: Yup.string().email("Email is invalid").required("email required"),
+            password: Yup.string().min(8, 'Password must be at least 8 charaters long').required("Password Required"),
+            confirmPassword: Yup.string().oneOf([Yup.ref('password'), null], "Password Must match").required("Confirm Password Required")
+        }),
+        onSubmit: async(formData) => {
+            //Axios implementation
+        }
+    })
+
+
+
   return (
-    <Wrapper>
-        <h2 className='mb-5'>Admin Register</h2>
+        <Wrapper>
             <div className='row'>
-              <div className='col-lg-4 col-md-4 col-sm-2 col-xs-2'>
+                <div className='col-lg-4 col-md-4 col-sm-2 col-xs-2'>
 
-              </div>
-              <div className='col-lg-4 col-md-4 col-sm-8 col-xs-8'>
-                <form>
-                      <div className="mb-3">
-                          <label className="form-label">Admin Name</label>
-                          <input type="text" className='form-control'></input>
-                      </div>
-                      <div className="mb-3">
-                          <label className="form-label">Email address</label>
-                            <input type="text" className='form-control'></input>
-                              <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
-                      </div>
-                      <div className="mb-3">
-                          <label className="form-label">Password</label>
-                          <input className='form-control' type="password"></input>
-                      </div>
-                        
-                      <button type="button" className="btn btn-primary">Register</button>
-                </form>
-              </div>
-              <div className='col-lg-4 col-md-4 col-sm-2 col-xs-2'>
+                </div>
+                <div className='col-lg-4 col-md-4 col-sm-8 col-xs-8'>
+                    <div>
+                        <h2 className='mb-5'>Admin Register</h2>
+                        <form onSubmit={formik.handleSubmit}>
+                            <div className="mb-3">
+                                <label className="form-label">Name</label>
+                                <input type="text" name="username" className='form-control' placeholder='Enter your name...'
+                                 onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.username}></input>
+                                {formik.touched.username &&  formik.errors.username && 
+                                <div className="alert alert-danger" role="alert">
+                                    <span>{formik.errors.username}</span>
+                                </div>
+                                }
+                            </div>
+                            <div className="mb-3">
+                                <label className="form-label">Email address</label>
+                                <input type="text" name="email" className='form-control' placeholder='Enter your email...'
+                                onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.email}></input>
+                                {formik.touched.email && formik.errors.email && 
+                                <div className="alert alert-danger" role="alert">
+                                    <span>{formik.errors.email}</span>
+                                </div>
+                                }
+                            </div>
+                            <div className="mb-3">
+                                <label className="form-label">Password</label>
+                                <input className='form-control' name="password" type="password" placeholder='Enter password...'
+                                onChange={formik.handleChange} onBlur={formik.handleBlur}  value={formik.values.password}></input>
+                                {formik.touched.password && formik.errors.password && 
+                                <div className="alert alert-danger" role="alert">
+                                    <span>{formik.errors.password}</span>
+                                </div>
+                                }
+                            </div>
+                            <div className="mb-3">
+                                <label className="form-label">Confirm Password</label>
+                                <input className='form-control' name="confirmPassword" type="password" placeholder='Confirm password...' 
+                                onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.confirmPassword}></input>
+                                {formik.touched.confirmPassword && formik.errors.confirmPassword && 
+                                <div className="alert alert-danger" role="alert">
+                                    <span>{formik.errors.confirmPassword}</span>
+                                </div>
+                                }
+                            </div>
 
-              </div>
+                            <button type="submit" className="btn btn-primary m-3">Register</button>
+                            <button type="reset" className="btn btn-danger" onClick={formik.resetForm}>reset</button>
+                        </form>
+                    </div>
+                </div>
+                <div className='col-lg-4 col-md-4 col-sm-2 col-xs-2'>
+
+                </div>
             </div>
-    </Wrapper>
-  )
+        </Wrapper>
+    )
 }
 
 
@@ -72,9 +126,6 @@ const Wrapper = styled.div`
         height: 25vh;
         width: 100wh;
     }
-
-
-
     button:{
         flex: none;
     }

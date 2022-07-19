@@ -92,7 +92,6 @@ function ImageGallery() {
           </div>
         </div>
       </ModalImg>
-
     </div>
 
   )

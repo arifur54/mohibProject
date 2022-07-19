@@ -1,5 +1,6 @@
 import React from 'react';
 import SectionType from './sectionType'
+
 function services_basement() {
   return (
     <div>

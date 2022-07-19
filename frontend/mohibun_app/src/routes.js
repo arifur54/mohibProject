@@ -14,29 +14,35 @@ import ProjectsBathroom from './components/Projects/projects_bathroom';
 import ImageGallery from './components/Projects/Image_gallery/ImageGallery';
 import Register from './components/Admin/Register';
 import Login from './components/Admin/Login';
+import AdminMain from './components/AdminPanel/AdminMain';
 
 function routes() {
     return (
         <div>
             <Routes>
+                {/* Home Routes */}
                 <Route path='/' element={<Home />} />
-                {/* <Route path='/services' element={<Services />} /> */}
+                {/* Services Routes */}
                 <Route path='/services/kitchen' element={<ServicesKitchen />} />
                 <Route path='/services/bathroom' element={<ServicesBathroom />} />
                 <Route path='/services/basement' element={<ServicesBasement />} />
                 <Route path='/services/fullhouse' element={<ServicesFullhouse />} />
                 {/* </Route> */}
 
-                {/* <Route path='/projects' element={<Projects />} />  */}
+                {/* Kitchen Routes />  */}
                 <Route path='/projects/kitchen' element={<ProjectsKitchen />} />
                 <Route path='/projects/bathroom' element={<ProjectsBathroom />} />
                 <Route path='/projects/basement' element={<ProjectsBasement />} />
                 <Route path='/projects/fullhouse' element={<ProjectsFullHouse />} />
                 <Route path='/projects/image_gallery' element={<ImageGallery />} />
-                {/* </Route> */}
+                {/* Contact Us route */}
                 <Route path='/contactus' element={<ContactUs />} />
+                {/* Register Route */}
                 <Route path='/register' element={<Register />} />
+                 {/* Login Route */}
                 <Route path='/login' element={< Login />} />
+                {/* Admin Panel Routes */}
+                <Route path='/admin_panel' element={<AdminMain />} />
             </Routes>
         </div>
     )

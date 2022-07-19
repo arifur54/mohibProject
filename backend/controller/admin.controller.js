@@ -12,7 +12,7 @@ let findAll = async function(req, res) {
         res.status(200).send(all)
     }catch (error) {
         res.status(400).send({
-            message: "Error getting admins",
+            errorMsg: "Error getting admins",
             error: error.message
         })
     }
@@ -135,10 +135,15 @@ let changePassword = async function(req, res){
 
 }
 
+// This route may be not needed
+let logOut = async function(req, res){
+    console.log("Logout")
+}
+
 module.exports = {
    findAll,
    addAdmin,
    adminLogin,
-   changePassword
-   
+   changePassword,
+   logOut
 }

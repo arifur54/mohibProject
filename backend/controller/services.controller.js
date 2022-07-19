@@ -16,12 +16,13 @@ let addService = async function(req, res) {
     })
 
     if(files){
-       let path = '';
-       files.forEach((files, index, arr) => {
-           path = path + files.path + ","
+    //    let path = '';
+       files.forEach((file, index, arr) => {
+        serviceDescription.images.push(file.path);
+        //    path = path + files.path + ","
        })
-       path = path.substring(0, path.lastIndexOf(","))
-       serviceDescription.images = path
+    //    path = path.substring(0, path.lastIndexOf(","))
+    //    serviceDescription.images = path
 
        try{
         const addService = await serviceDescription.save();

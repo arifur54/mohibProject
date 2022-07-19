@@ -7,7 +7,7 @@ const projectSchema = new Schema({
         type: String,
         required: true,
     },
-    streetName: {
+    projectTitle:{
         type: String,
         required: true,
     },
@@ -15,25 +15,17 @@ const projectSchema = new Schema({
         type: String,
         required: true,
     },
-    designType: {
+    description: {
         type: String,
         required: true,
     },
-    features: {
-        type: String,
-        required: true,
+    beforeImage: {
+        type: [String],
+        required: true
     },
-    ProjectOverview: {
-        type: String,
-        required: true,
-    },
-    projectBeforeID: {
-        type: mongoose.SchemaTypes.ObjectId,
-        ref: "beforeImage"
-    },
-    projectAfterID: {
-        type: mongoose.SchemaTypes.ObjectId,
-        ref: "afterImage"
+    afterImage: {
+        type: [String],
+        required: true
     }
   
 }, {timestamps: true});

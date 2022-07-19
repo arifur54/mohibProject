@@ -12,8 +12,8 @@ function Section2() {
                             <button className='card bg-dark text-light'>
                                 <img className='card-img' src='/images/home1.jpg' alt="Card Image" />
                                 <div className='card-img-overlay'>
-                                    <h1 className='card-text text-light'>Kitchen</h1>
-                                    <h6 className='card-text text-light'>This is a kitchen</h6>
+                                    <h1 className='card-text'>Kitchen</h1>
+                                    <h6 className='card-text'>This is a kitchen</h6>
                                 </div>
                             </button>
                         </CardAnimation>
@@ -22,10 +22,10 @@ function Section2() {
                     <div className='col-md-4 col-sm-12 mt-3'>
                         <CardAnimation>
                              <button className='card bg-dark text-light'>
-                                <img className='card-img' src='/images/home1.jpg' alt="Card Image" />
+                                <img className='card-img' src='/images/file17.jpeg' alt="Card Image" />
                                 <div className='card-img-overlay'>
-                                    <h1 className='card-text text-light'>Bathroom</h1>
-                                    <h6 className='card-text text-light'>This is a Bathroom</h6>
+                                    <h1 className='card-text'>Bathroom</h1>
+                                    <h6 className='card-text'>This is a Bathroom</h6>
                                 </div>
                             </button>
                         </CardAnimation>
@@ -33,10 +33,10 @@ function Section2() {
                     <div className='col-md-4 col-sm-12 mt-3'>
                         <CardAnimation>
                              <button className='card bg-dark'>
-                                <img className='card-img' src='/images/home1.jpg' alt="Card Image" />
+                                <img className='card-img' src='/images/home_renovation.jpg' alt="Card Image" />
                                 <div className='card-img-overlay'>
-                                    <h1 className='card-text text-light'>Basement</h1>
-                                    <h6 className='card-text text-light'>This is a Basement</h6>
+                                    <h1 className='card-text'>Basement</h1>
+                                    <h6 className='card-text'>This is a Basement</h6>
                                 </div>
                             </button>
                         </CardAnimation>
@@ -85,8 +85,39 @@ const Textwrapper = styled.div`
 `
 const CardAnimation = styled.div`
     text-align: center;
+    img {
+        height: 40vh;
+        width: 30vw;
+      
+    }
+
+    @media (max-width: 1200px){
+       img {
+        height: 25vh;
+        width: 30vw;
+       }
+    }
+    @media (max-width: 767px){
+        img {
+            height: 35vh;
+            width: 85vw;
+           }
+    }
+    @media (max-width: 600px){
+        img {
+            height: 35vh;
+            width: 75vw;
+           }
+    }
+
     h1 {
-        background-color: black;
+        color: #232323;
+        padding-top: 5em;
+        text-shadow: 2px 4px 3px rgba(0,0,0,0.7);
+    }
+    h6 {
+        color: #D7F4F5;
+        text-shadow: 2px 4px 3px rgba(0,0,0,0.7);
     }
 
     &:hover{

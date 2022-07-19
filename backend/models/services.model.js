@@ -20,7 +20,7 @@ const serviceSchema = new Schema({
         required: true,
     },
     images: {
-        type: String,
+        type: [String],
         required: true
     }
 }, {timestamps: true})

@@ -1,9 +1,12 @@
 const express  = require('express');
 const cors = require('cors');
 // const mongoose = require('mongoose');
-const admin = require("./routes/admin.routes")
-const service = require("./routes/services.routes")
+const admin = require("./routes/admin.routes");
+const service = require("./routes/services.routes");
 const projects = require("./routes/projects.routes");
+const contact = require("./routes/contactus.routes");
+const reviews = require("./routes/reviews.routes");
+
 
 //require('dotenv').config();
 
@@ -14,9 +17,12 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+
 app.use("/admin", admin);
-app.use("/service", service)
-app.use("/projects", projects)
+app.use("/service", service);
+app.use("/projects", projects);
+app.use("/contactus", contact);
+app.use("/reviews", reviews)
 app.use("/uploads", express.static('uploads'))
 app.use("*", (req, res) => res.status(404).json({ error: "Page Not Found"}))
 
