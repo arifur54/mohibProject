@@ -1,6 +1,6 @@
 const Contact = require('../models/contactus.model');
-const nodemailer = require('nodemailer');
-require('dotenv').config();
+const transporter = require("../config/transporter");
+
 
 
 let getAll = async function(req, res) {
@@ -20,15 +20,6 @@ let getAll = async function(req, res) {
     }
 }
 
-const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-        user: "arifur.r.1992@gmail.com",
-        pass: "ryrxpbkmtqqaeucg"
-    },
-    port: 465,
-    host: 'smtp.gmail.com',
-});
 
 let submitContactUs = async function(req, res){
     // Send Contact us email info from client and store it to database
