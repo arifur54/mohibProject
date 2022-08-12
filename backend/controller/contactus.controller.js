@@ -15,7 +15,8 @@ let getAll = async function(req, res) {
         res.status(200).send(all)
     }catch(error){
         res.status(400).send({
-            errorMsg: "Error Getting Admins"
+            errorMsg: "Error Getting Contacts",
+            error: error
         })
     }
 }
@@ -52,6 +53,7 @@ let submitContactUs = async function(req, res){
             })
 
             if(contactData){
+                console.log(contactData)
                 res.send({
                     msg: "Email send and saved to database",
                     data: contactData
@@ -59,7 +61,8 @@ let submitContactUs = async function(req, res){
             }   
         }
     }catch(error){
-        res.send({
+        res.status(400).send({
+            errMsg: "Error: Something went wrong",
             err: error,
         })
     }

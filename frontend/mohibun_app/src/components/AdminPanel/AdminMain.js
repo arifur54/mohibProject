@@ -1,11 +1,23 @@
-import React, {useState} from 'react'
+import React, {useState , useContext} from 'react'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import { faRectangleAd } from '@fortawesome/free-solid-svg-icons'
 import ProjectPanel from './ProjectPanel'
 import ServicePanel from './ServicePanel';
 import ContactUs from './ContactUs';
 import styled from 'styled-components';
+import ReviewPanel from './ReviewPanel';
+import { Context } from '../../context/Context';
+
 
 export default function AdminMain() {
-    const [active, setPageState] = useState("services")
+    const [active, setPageState] = useState("services");
+    const {user, dispatch } = useContext(Context);
+
+    const handleLogOut = () => {
+        dispatch({type: 'LOGOUT'})
+    }
+
+    console.log(user);
   return (
     <div>
         <div className='container-fluid'>
@@ -18,10 +30,11 @@ export default function AdminMain() {
                               </a>
                               <ul className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                                   <li className="nav-item">
-                                      <button className="nav-link align-middle px-0" >
-                                          <i className="fs-4 bi-house"></i> <span className="ms-1 d-none d-sm-inline" onClick={() => setPageState("services")}>Service Panel</span>
+                                      <button className="nav-link align-middle px-0" onClick={() => setPageState("services")}>
+                                        <FontAwesomeIcon icon={faRectangleAd} /> <span className="ms-1 d-none d-sm-inline" >Service Panel</span>
                                       </button>
                                   </li>
+                                 
                                   {/* <li>
                     <a hrefName="#submenu1" data-bs-toggle="collapse" className="nav-link px-0 align-middle">
                         <i className="fs-4 bi-speedometer2"></i> <span className="ms-1 d-none d-sm-inline">Dashboard</span> </a>
@@ -35,45 +48,20 @@ export default function AdminMain() {
                     </ul>
                 </li> */}
                                   <li>
-                                      <button className="nav-link px-0 align-middle">
-                                          <i className="fs-4 bi-table"></i> <span className="ms-1 d-none d-sm-inline" onClick={() => setPageState("projects")}>Project Panel</span>
+                                      <button className="nav-link px-0 align-middle" onClick={() => setPageState("projects")}>
+                                        <FontAwesomeIcon icon={faRectangleAd} /> <span className="ms-1 d-none d-sm-inline" >Project Panel</span>
                                       </button>
                                   </li>
                                   <li>
-                                      <button className="nav-link px-0 align-middle">
-                                          <i className="fs-4 bi-table"></i> <span className="ms-1 d-none d-sm-inline" onClick={() => setPageState("contactus")}>Contact_Us Panel</span>
+                                      <button className="nav-link px-0 align-middle" onClick={() => setPageState("contactus")}>
+                                        <FontAwesomeIcon icon={faRectangleAd} /> <span className="ms-1 d-none d-sm-inline" >Contact_Us Panel</span>
                                       </button>
                                   </li>
-                                  {/* <li>
-                                      <a data-bs-toggle="collapse" className="nav-link px-0 align-middle ">
-                                          <i className="fs-4 bi-bootstrap"></i> <span className="ms-1 d-none d-sm-inline">Bootstrap</span></a>
-                                      <ul className="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
-                                          <li className="w-100">
-                                              <a  className="nav-link px-0"> <span className="d-none d-sm-inline">Item</span> 1</a>
-                                          </li>
-                                          <li>
-                                              <a  className="nav-link px-0"> <span className="d-none d-sm-inline">Item</span> 2</a>
-                                          </li>
-                                      </ul>
-                                  </li> */}
-                                  {/* <li>
-                                      <a  data-bs-toggle="collapse" className="nav-link px-0 align-middle">
-                                          <i className="fs-4 bi-grid"></i> <span className="ms-1 d-none d-sm-inline">Products</span> </a>
-                                      <ul className="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
-                                          <li className="w-100">
-                                              <a  className="nav-link px-0"> <span className="d-none d-sm-inline">Product</span> 1</a>
-                                          </li>
-                                          <li>
-                                              <a hrefName="#" className="nav-link px-0"> <span className="d-none d-sm-inline">Product</span> 2</a>
-                                          </li>
-                                          <li>
-                                              <a hrefName="#" className="nav-link px-0"> <span className="d-none d-sm-inline">Product</span> 3</a>
-                                          </li>
-                                          <li>
-                                              <a hrefName="#" className="nav-link px-0"> <span className="d-none d-sm-inline">Product</span> 4</a>
-                                          </li>
-                                      </ul>
-                                  </li> */}
+                                  <li>
+                                      <button className="nav-link px-0 align-middle"  onClick={() => setPageState("review")}>
+                                        <FontAwesomeIcon icon={faRectangleAd} /> <span className="ms-1 d-none d-sm-inline">Review Panel</span>
+                                      </button>
+                                  </li>
                               </ul>
                               <hr />
                               <div className="dropdown pb-4">
@@ -88,7 +76,7 @@ export default function AdminMain() {
                                       <li>
                                           <hr className="dropdown-divider" />
                                       </li>
-                                      <li><button className="dropdown-item" >Sign out</button></li>
+                                      <li><button className="dropdown-item" onClick={handleLogOut}>Sign out</button></li>
                                   </ul>
                               </div>
                           </Wrapper>
@@ -99,6 +87,7 @@ export default function AdminMain() {
                     {active === "services" && <ServicePanel />}
                     {active === "projects" && <ProjectPanel />}
                     {active === "contactus" && <ContactUs />}
+                    {active === "review" && <ReviewPanel />}
                 </div>
             </div>
         </div>

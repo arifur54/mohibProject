@@ -19,31 +19,46 @@ let findAll = async function(req, res) {
 }
 
 let addAdmin = async (req, res) => {
-    const { username, email, password } = req.body;
+    const { username, email, password, confirmPassword } = req.body;
+    console.log(req.body)
     if(!username || typeof username !== 'string'){
-        return res.json({status: 'error', error: 'Invalid username'})
+        return res.status(401).json({errorMsg: 'Invalid username'})
     }
+
     if(!email || typeof email !== 'string'){
-        return res.json({status: 'error', error: 'Invalid email'})
+        return res.status(401).json({errorMsg: 'Invalid email'})
     }
 
     if(!password){
-        return res.json({status: 'error', error: 'Password cannot be empty'})
+        return res.status(401).json({errorMsg: 'Password cannot be empty'})
     }
 
     if(password.length < 8){
-        return res.json({status: 'error', error: 'Password must be minmum of 8 char long'})
+        return res.status(401).json({errorMsg: 'Password must be minmum of 8 char long'})
+    }
+    
+    if(confirmPassword.length < 8){
+        return res.status(401).json({errorMsg: 'Confirm Password must be minmum of 8 char long'})
     }
 
-    let adminExists;
+    if(password != confirmPassword){
+        return res.status(401).json({errorMsg: 'Password and Confirm Password doesnot match'})
+    }
+
+    let adminEmailExists;
+    let adminUserNameExits;
     try{
-        adminExists = await Admin.findOne({email: req.body.email})
-        if(adminExists){
-            console.log(adminExists)
-            res.send({
-                msg: "User already exists"
+        adminEmailExists = await Admin.findOne({email: req.body.email})
+        adminUserNameExits = await Admin.findOne({username: req.body.username});
+        if(adminEmailExists){
+            res.status(401).send({
+                errorMsg: "Admin Email already exists! Email and Username must be unique"
             })
-            console.log("True")
+
+        }else if(adminUserNameExits){
+            res.status(401).send({
+                errorMsg: "Admin Username already exists! Email and Username must be unique"
+            })
         }else{
             const saltRounds = 10;
             let addAdmin;
@@ -58,6 +73,7 @@ let addAdmin = async (req, res) => {
                 msg: "Admin Added successfully",
                 data: addAdmin
             })
+
         }
                         
     }catch(error){
@@ -83,14 +99,15 @@ let adminLogin = async function(req, res) {
                 confirm: admin.confirm
             }
             if(cmp){
-                const token = jwt.sign({adminData}, process.env.JWT_SECRET)
+                const token = jwt.sign({adminData}, process.env.JWT_SECRET, {expiresIn: '1d'})
                 res.status(200).send({
-                    msg: "Auth Confirm",
-                    token: token
+                    msg: "Authentication Confirmed",
+                    token: token,
+                    data: adminData
                 })  
             }else{
                 res.send({
-                    msg: "Wrong password entered"
+                    errorMsg: "Wrong password entered"
                 })
             }
         }else{
@@ -105,6 +122,7 @@ let adminLogin = async function(req, res) {
         })
     }
 }
+
 
 // This route need to be tested once frontend varification completes.. 
 let changePassword = async function(req, res){
@@ -135,15 +153,12 @@ let changePassword = async function(req, res){
 
 }
 
-// This route may be not needed
-let logOut = async function(req, res){
-    console.log("Logout")
-}
+
 
 module.exports = {
    findAll,
    addAdmin,
    adminLogin,
-   changePassword,
-   logOut
+   changePassword
+
 }

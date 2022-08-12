@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+
 // import {
 //     MDBNavbar,
 //     MDBContainer,
@@ -12,10 +13,10 @@ import React, { useState } from 'react'
 import styled from 'styled-components';
 import Routes from '../../routes'
 import { Link } from 'react-router-dom'
+// import logo from '../../../public/images/mklogo.png'
 
 function Header() {
     // const [showNavColorSecond, setShowNavColorSecond] = useState(false);
-
     const [dropdown, setDropdown] = useState(false);
     const toggleOpen = () => setDropdown(!dropdown);
     const [dropdown2, setDropdown2] = useState(false);
@@ -83,7 +84,11 @@ function Header() {
                 </MDBNavbar> */}
                 <nav className="navbar navbar-expand-lg navbar-light">
                 <div className='container-fluid'>
-                <Link to="/" className='navbar-brand'>Logo</Link>
+                <Link to="/" className='navbar-brand'>
+                    <img src='/images/mkLogo2.png' className='navbar-brand'  width={100} height={100}></img>
+                </Link>
+ 
+                {/* <Link to="/" className='navbar-brand'></Link> */}
                 <button 
                     className="navbar-toggler" style={{ backgroundColor: '#ffffff'}}
                     type="button" 
@@ -122,7 +127,7 @@ function Header() {
                                 <Link className='dropdown-item' onClick={toggleOpen} to='projects/kitchen'>Kitchen</Link>
                                 <Link className='dropdown-item' onClick={toggleOpen} to='projects/bathroom'>Bathroom</Link>
                                 <Link className='dropdown-item' onClick={toggleOpen} to='projects/Basement'>Basement</Link>
-                                <Link className='dropdown-item' onClick={toggleOpen} to='projects/fullhouse'>Whole House</Link>
+                                <Link className='dropdown-item' onClick={toggleOpen} to='projects/fullhouse'>Full House</Link>
                             </div>
                         </li>
                         <li className="nav-item">
@@ -148,10 +153,10 @@ function Header() {
 export default Header
 
 const NavWrap = styled.div`
-    padding: 1em;
+    // padding: 1em;
     margin: 0%;
     // Add opasity
-    background-color: #ADD8E6;  
+    background-color: #7A79D6;  
     font-family: 'Courier New', Courier, monospace;
     font-size: Larger;  
     font-weight: bold;

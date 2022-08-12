@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
-
+import axios from 'axios';
 
 function sectionT(props) {
   let type = props.type;
@@ -86,22 +86,22 @@ export default sectionT;
 const Wrapper = styled.div`
   background-color: hsl(210, 47%, 61%);
   padding-bottom: 5em;
-  background-image: radial-gradient(
-      650px circle at 0% 0%, 
-      hsl(210, 47%, 70%) 15%,
-      hsl(210, 47%, 60%) 35%,
-      hsl(210, 47%, 50%) 75%,
-      hsl(210, 47%, 40%) 80%,
-      transparent 100%
-  ),
-  radial-gradient(
-      1250px circle at 100% 100%, 
-      hsl(210, 47%, 70%) 15%,
-      hsl(210, 47%, 60%) 35%,
-      hsl(210, 47%, 50%) 75%,
-      hsl(210, 47%, 50%) 80%,
-      transparent 100%
-  );
+  // background-image: radial-gradient(
+  //     650px circle at 0% 0%, 
+  //     hsl(210, 47%, 70%) 15%,
+  //     hsl(210, 47%, 60%) 35%,
+  //     hsl(210, 47%, 50%) 75%,
+  //     hsl(210, 47%, 40%) 80%,
+  //     transparent 100%
+  // ),
+  // radial-gradient(
+  //     1250px circle at 100% 100%, 
+  //     hsl(210, 47%, 70%) 15%,
+  //     hsl(210, 47%, 60%) 35%,
+  //     hsl(210, 47%, 50%) 75%,
+  //     hsl(210, 47%, 50%) 80%,
+  //     transparent 100%
+  // );
   h1{
     opacity: 80%;
     padding: 1.5em;

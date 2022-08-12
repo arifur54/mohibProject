@@ -1,10 +1,17 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import {Context} from '../../context/Context'
 import styled from 'styled-components';
 import {useFormik} from 'formik';
 import axios from 'axios';
 import * as Yup from 'yup';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
+    let navigate = useNavigate();
+    const {dispatch, isFetching} = useContext(Context);
+
     const formik = useFormik({
         initialValues: {
             email: "",
@@ -15,8 +22,38 @@ export default function Login() {
             password: Yup.string().min(8, 'Password must be at least 8 charaters long').required("Password Required")
         }),
         onSubmit: async (formData) => {
-            console.log(formData)
             //axios will go here :)
+            dispatch({type: "LOGIN_START"})
+            const {email, password} = formData;
+            
+            try{
+                const res = await axios.post('/admin/adminLogin', {
+                    email, password
+                }) 
+                   
+                if(res.data.errorMsg){
+                    toast.error(`Unauthorized! ${res.data.errorMsg}, please try again!`);  
+                    return
+                }               
+                if(res.data){
+                    navigate("/admin_panel", {replace: true})
+                    dispatch({type: "LOGIN_SUCCESS", payload: res.data})  
+                    //window.localStorage.setItem('user', JSON.stringify({userData}));
+               
+                }
+               
+                
+            }catch(error){
+                let errorMsg = error.response.data.msg
+                if(error){
+                    toast.error(errorMsg);
+                    dispatch({type: "LOGIN_FAILURE"})
+                }
+            }
+     
+        
+            //toast('Test Notification', {position: toast.POSITION.TOP_CENTER})
+            //console.log('i m here')
         }
     })
 
@@ -48,12 +85,13 @@ export default function Login() {
                                     <span>{formik.errors.password}</span>
                                 </div>
                             }
+
+                            <ToastContainer />
                       </div>    
                       <button type="submit" className="btn btn-primary">Login</button>
                 </form>
               </div>
               <div className='col-lg-4 col-md-4 col-sm-2 col-xs-2'>
-
               </div>
             </div>
     </Wrapper>

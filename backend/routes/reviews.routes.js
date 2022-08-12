@@ -1,16 +1,18 @@
 const express = require('express');
 const router = express.Router();
 const Reviews = require('../controller/reviews.controller');
+const authenticateToken = require('../config/validateUser');
 
+
+router.get('/get_all', authenticateToken ,Reviews.getAll);
 
 router.get('/get_all_status', Reviews.getAllStatus);
 
 router.post('/submit_review', Reviews.submitReview);
 
-router.post('/set_review_status_true/:id', Reviews.setReviewStatusTrue);
+// Need to add authenticateToken here but giving errors
+router.post('/set_review_status/:id', Reviews.setReviewStatus);
 
-router.post('/set_review_status_false/:id', Reviews.setReviewStatusFalse);
-
-router.delete('/delete_review/:id', Reviews.deleteReview);
+router.delete('/delete_review/:id',authenticateToken ,Reviews.deleteReview);
 
 module.exports = router;

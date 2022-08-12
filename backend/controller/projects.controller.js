@@ -3,6 +3,7 @@ const fs = require('fs');
 const commaFiles = require('../config/commafiles');
 const _ = require('lodash');
 
+var path = require("path")
 
 
 let getAll = async function(req, res){
@@ -33,7 +34,36 @@ let getAll = async function(req, res){
     }
 }
 
+let getAllById = async function(req, res){
+    const id = req.params.id;
+    try{
+        const description = await Projects.findById(id)
+        if(!description){
+            res.status(404).send({
+                errMsg: "unable to find descriptions"
+            })
+        }
+
+        if(description.length === 0){
+            res.status(404).send({
+                errMsg: "No descriptions found in the database",
+            })
+        }
+
+        res.status(200).send({
+            msg: "Descriptions by id retrived successfully",
+            data: description
+        })
+    }catch(error){
+        res.status(404).send({
+            errMsg: "Something went wrong :(",
+            error: error
+        })
+    }
+}
+
 let addProjectDescription = async function(req, res){
+
     const beforeImgFiles = req.files.beforeImage;
     const afterImgFiles = req.files.afterImage;
 
@@ -46,21 +76,26 @@ let addProjectDescription = async function(req, res){
    
     if(!beforeImgFiles){
         res.send({ errMsg: "No files added"})
+        return;
     }else if(beforeImgFiles.length > 10){
         res.send({errMsg: "Files are greater then 10 "})
+        return;
     }else{
         beforeImgFiles.forEach((file, index, arr) => {
-            projectDescription.beforeImage.push(file.path);
+           projectDescription.beforeImage.push(`${process.env.UPLOAD_IMG_FILE_PATH}${file.filename};${file.path}`);
         }) 
     }
     
     if(!afterImgFiles){
         res.send({ errMsg: "No files added"})
+        return;
     }else if(afterImgFiles.length > 10){
         res.send({errMsg: "Files are greater then 10 "})
+        return;
     }else{    
         afterImgFiles.forEach((file, index, arr) => {
-            projectDescription.afterImage.push(file.path);
+            console.log(file)
+            projectDescription.afterImage.push(`${process.env.UPLOAD_IMG_FILE_PATH}${file.filename};${file.path}`);
         })
     }
 
@@ -71,11 +106,13 @@ let addProjectDescription = async function(req, res){
             msg: "Project Description Added",
             data: projectDescription
         })
+        return;
     }catch(error){
         res.status(404).send({
             msg: "Something went wrong :(",
             error: error
         })
+        return;
     }
 }
 
@@ -127,26 +164,32 @@ let deleteProjectDescription = async function(req, res){
             res.status(404).send({
                 errMsg: "description not found."
             })
+            return;
         }
 
         try{
             const beforeImg = desc.beforeImage;
             const afterImg = desc.afterImage;
-            beforeImg.forEach((file, index) => {
-                fs.unlink(file, (err) => {
+            beforeImg.forEach(async(file, index) => {
+                const fileSplitted = file.split(';');
+                const name = fileSplitted[fileSplitted.length - 1];
+                console.log(name)
+                await fs.unlink(name, (err) => {
                     if(err) {res.send({msg: err})}
                     console.log(`Before images: ${file} for ${req.params.id} deleted from file system`)
                 })
             })
 
-            afterImg.forEach((file, index) => {
-                fs.unlink(file, (err) => {
+            afterImg.forEach(async(file, index) => {
+                const fileSplitted = file.split(';');
+                const name = fileSplitted[fileSplitted.length - 1];
+                await fs.unlink(name, (err) => {
                     if(err) {res.send({msg: err})}
                     console.log(`After images: ${file} for ${req.params.id} deleted from file system`)
                 })
             })
 
-            await desc.delete();
+           await desc.delete();
 
             res.status(200).send({
                 msg: `Descripiton has been deleted successfully`
@@ -168,6 +211,7 @@ let deleteProjectDescription = async function(req, res){
 
 module.exports = {
     getAll,
+    getAllById,
     addProjectDescription,
     updateProjectDescription,
     deleteProjectDescription,

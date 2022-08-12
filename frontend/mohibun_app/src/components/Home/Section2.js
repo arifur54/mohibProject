@@ -84,8 +84,11 @@ const Textwrapper = styled.div`
     }
 `
 const CardAnimation = styled.div`
-    text-align: center;
+// text-align: center;
+    display: flex;
+   
     img {
+        justify-content: center;
         height: 40vh;
         width: 30vw;
       

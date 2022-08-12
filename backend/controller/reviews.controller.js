@@ -3,6 +3,31 @@ const transporter = require("../config/transporter");
 
 
 
+let getAll = async function(req, res){
+    try{
+        let all = await Reviews.find({});
+
+        if(!all || all.lenght === 0){
+            res.status(404).send({
+                errorMsg: "No client reviews data found!"
+            })
+        }
+
+        if(all){
+            res.status(200).send({
+                msg: "successfully retrived all client reviews",
+                data: all
+            })
+        }
+
+    }catch(error){
+        res.status(400).send({
+            errorMsg: "Error Getting Reviews",
+            error: error
+        })
+    }
+}
+
 let getAllStatus = async function(req, res){
     //get all reviews based on status === true
     try{
@@ -78,11 +103,11 @@ let submitReview = async function(req, res){
     }
 }
 
-let setReviewStatusTrue = async function(req, res){
+let setReviewStatus = async function(req, res){
     // Set a specific review status so it can be shown in front end. 
     try{
         const reviewDesc = await Reviews.findById(req.params.id);
-        if(!reviewDesc){
+        if(!reviewDesc || reviewDesc.length === 0){
             res.status(404).send({
                 errorMsg: "description Not Found!"  
               })  
@@ -90,14 +115,16 @@ let setReviewStatusTrue = async function(req, res){
 
         if(reviewDesc.reviewStatus === false){
             reviewDesc.reviewStatus = true
+           
+        }else if(reviewDesc.reviewStatus === true){
+            reviewDesc.reviewStatus = false
         }
-     
+        
         let changedStatus = await reviewDesc.save();
 
         if(changedStatus){
             res.status(200).send({
-                msg: `Review status changed to: ${reviewDesc.reviewStatus}, this review will now be displayed 
-                in the main page.`
+                msg: `Review status changed to: ${reviewDesc.reviewStatus}, this review will now be displayed in the main page.`
             })
         }
 
@@ -110,36 +137,7 @@ let setReviewStatusTrue = async function(req, res){
     }
 }
 
-let setReviewStatusFalse = async function(req, res) {
-    
-    try{
-        const reviewDesc = await Reviews.findById(req.params.id);
-        if(!reviewDesc){
-            res.status(404).send({
-                errorMsg: "description Not Found!"  
-              })  
-        }
 
-        if(reviewDesc.reviewStatus === true){
-            reviewDesc.reviewStatus = false
-        }
-
-        
-        let changedStatus = await reviewDesc.save();
-
-        if(changedStatus){
-            res.status(200).send({
-                msg: `Review status changed to: ${reviewDesc.reviewStatus}, this review will now be removed from main page.          in the main page.`
-            })
-        }
-
-    }catch(error){
-        res.send({
-            errorMsg: "Something went wrong :(",
-            error: error
-        })
-    }
-}
 
 let deleteReview = async function(req, res){
     // Delete a specific review
@@ -167,9 +165,9 @@ let deleteReview = async function(req, res){
 }
 
 module.exports = {
+    getAll,
     getAllStatus,
     submitReview,
-    setReviewStatusTrue,
-    setReviewStatusFalse,
+    setReviewStatus,
     deleteReview
 }

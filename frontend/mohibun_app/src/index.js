@@ -8,12 +8,15 @@ import "bootstrap/dist/js/bootstrap";
 // import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 // import 'mdb-react-ui-kit/dist/mdb-react-ui-kit';
 import {BrowserRouter} from 'react-router-dom';
+import { ContextProvider } from './context/Context';
 
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
+    <ContextProvider>
       <App />
+    </ContextProvider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')

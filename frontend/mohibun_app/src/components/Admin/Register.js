@@ -1,11 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 import {useFormik} from 'formik';
 import axios from 'axios';
 import * as Yup from 'yup';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Register() { 
-  
+    let navigate = useNavigate();
     const formik = useFormik({
         initialValues: {
             username: '',
@@ -21,6 +24,37 @@ export default function Register() {
         }),
         onSubmit: async(formData) => {
             //Axios implementation
+            const {username, email, password, confirmPassword} = formData;
+            try{
+                const res = await axios.post('/admin/addAdmin', {
+                    username, email, password, confirmPassword
+                })
+                if(res){
+                    console.log(res.data)
+                    toast.success(`${res.data.msg}!`);
+
+                    // use this to redirect to required page
+                    // setTimeout(()=> {
+                    //     navigate("/login", {replace: true})
+                    // }, 5000)
+                 
+                }
+            }catch(error){
+                console.log(error)
+                //console.log(error.message)
+                let errorMsg = error.response.data.errorMsg
+                let errorStatus = error.response.status
+
+                if(error.message){
+                    toast.error(`Unauthorized! Please login to register`)
+                }
+                
+                if(errorMsg){
+                    toast.error(`Unauthorized! ${errorMsg}`)
+                }
+                
+              
+            }
         }
     })
 
@@ -29,10 +63,10 @@ export default function Register() {
   return (
         <Wrapper>
             <div className='row'>
-                <div className='col-lg-4 col-md-4 col-sm-2 col-xs-2'>
+                <div className='col-lg-4 col-md-4 col-sm-3'>
 
                 </div>
-                <div className='col-lg-4 col-md-4 col-sm-8 col-xs-8'>
+                <div className='col-lg-4 col-md-4 col-sm-9'>
                     <div>
                         <h2 className='mb-5'>Admin Register</h2>
                         <form onSubmit={formik.handleSubmit}>
@@ -79,10 +113,12 @@ export default function Register() {
 
                             <button type="submit" className="btn btn-primary m-3">Register</button>
                             <button type="reset" className="btn btn-danger" onClick={formik.resetForm}>reset</button>
+
+                            <ToastContainer />
                         </form>
                     </div>
                 </div>
-                <div className='col-lg-4 col-md-4 col-sm-2 col-xs-2'>
+                <div className='col-lg-4 col-md-4 col-sm-3'>
 
                 </div>
             </div>
@@ -94,7 +130,7 @@ export default function Register() {
 const Wrapper = styled.div`
     background-color: hsl(218, 41%, 15%);
     padding-bottom: 5em;
-    padding-top: 10em;
+    padding-top: 5em;
     height: 80vh;
     background-image: radial-gradient(
         650px circle at 0% 0%, 

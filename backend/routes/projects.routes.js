@@ -6,12 +6,14 @@ const store = require('../config/multer');
 //router
 router.get('/getAll', project.getAll);
 
+router.get('/getAllById/:id', project.getAllById);
+
 router.post('/addProjectDescription', store.fields([
     {
         name: "beforeImage", maxCount: 10
     },
     {
-        name: "afterImage", maxCount: 10 
+        name: "afterImage", maxCount: 10
     }
     ]), project.addProjectDescription);  
 

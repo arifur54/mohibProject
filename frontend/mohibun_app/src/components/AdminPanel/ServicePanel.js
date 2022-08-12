@@ -1,6 +1,10 @@
 import React from 'react'
 
+
+
 export default function ServicePanel() {
+
+
   return (
     <div className='container-fluid'>
         <div className='row'>
@@ -9,7 +13,8 @@ export default function ServicePanel() {
           </div>
 
           <div className='col-md-6'>
-            <h1 className='mb-3 text-start'>Service Panel</h1>
+            <h1 className='mt-5 mb-3 text-start'>Service Panel</h1>
+            <hr />
           <form>
             <div className='mb-3 text-start'>
               <label htmlFor="inputOption" className="form-label">Select a service type</label>

@@ -5,7 +5,7 @@ import React from 'react'
 function Section3() {
     return (
         <div className='p-5 text-center'>
-            <div className='container'>
+            <div className='container-fluid'>
                 <div className='d-sm-flex'>
                     <div>
                         <h1>About us</h1>
