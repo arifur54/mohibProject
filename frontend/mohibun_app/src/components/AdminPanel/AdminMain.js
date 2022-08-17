@@ -1,5 +1,5 @@
 import React, {useState , useContext} from 'react'
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+// import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { faRectangleAd } from '@fortawesome/free-solid-svg-icons'
 import ProjectPanel from './ProjectPanel'
 import ServicePanel from './ServicePanel';
@@ -31,7 +31,8 @@ export default function AdminMain() {
                               <ul className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                                   <li className="nav-item">
                                       <button className="nav-link align-middle px-0" onClick={() => setPageState("services")}>
-                                        <FontAwesomeIcon icon={faRectangleAd} /> <span className="ms-1 d-none d-sm-inline" >Service Panel</span>
+                                        {/* <FontAwesomeIcon icon={faRectangleAd} /> */}
+                                         <span className="ms-1 d-none d-sm-inline" >Service Panel</span>
                                       </button>
                                   </li>
                                  
@@ -49,17 +50,20 @@ export default function AdminMain() {
                 </li> */}
                                   <li>
                                       <button className="nav-link px-0 align-middle" onClick={() => setPageState("projects")}>
-                                        <FontAwesomeIcon icon={faRectangleAd} /> <span className="ms-1 d-none d-sm-inline" >Project Panel</span>
+                                        {/* <FontAwesomeIcon icon={faRectangleAd} />  */}
+                                        <span className="ms-1 d-none d-sm-inline" >Project Panel</span>
                                       </button>
                                   </li>
                                   <li>
                                       <button className="nav-link px-0 align-middle" onClick={() => setPageState("contactus")}>
-                                        <FontAwesomeIcon icon={faRectangleAd} /> <span className="ms-1 d-none d-sm-inline" >Contact_Us Panel</span>
+                                        {/* <FontAwesomeIcon icon={faRectangleAd} /> */}
+                                         <span className="ms-1 d-none d-sm-inline" >Contact_Us Panel</span>
                                       </button>
                                   </li>
                                   <li>
                                       <button className="nav-link px-0 align-middle"  onClick={() => setPageState("review")}>
-                                        <FontAwesomeIcon icon={faRectangleAd} /> <span className="ms-1 d-none d-sm-inline">Review Panel</span>
+                                        {/* <FontAwesomeIcon icon={faRectangleAd} />  */}
+                                        <span className="ms-1 d-none d-sm-inline">Review Panel</span>
                                       </button>
                                   </li>
                               </ul>

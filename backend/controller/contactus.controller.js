@@ -28,7 +28,7 @@ let submitContactUs = async function(req, res){
 
     const sendMessage = {
         from: email,
-        to: "arifur.r.1992@gmail.com",
+        to: "arif.r.92@gmail.com",
         subject: `Email from potential client: ${firstName} ${lastName}`,
         text: `
                Customer Type: ${options} 
