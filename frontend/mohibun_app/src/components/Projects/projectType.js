@@ -24,7 +24,7 @@ function Projects(props) {
 
     const OurProjectWrapper = styled.div`
     &{background-image:linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.0)),url("${props.images}");
-    height: 80vh;
+    min-height: 80vh;
     padding-top: 3em;
     padding-bottom: 3em;
     background-repeat: no-repeat;
@@ -116,9 +116,9 @@ const Wrapper = styled.div`
         object-fit: cover;
     }
 
-    button:{
-        flex: none;
-    }
+    // button:{
+    //     flex: none;
+    // }
 
     button:hover{
         background-color: #f0f0f5;

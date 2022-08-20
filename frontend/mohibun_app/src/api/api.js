@@ -19,13 +19,23 @@ export const API = {
         }
     },
     ReviewSetStatus: {
-        async setReviewStatus(id, token){
-            return await axios.post(`/reviews/set_review_status/${id}`, { headers: { Authorization: `Bearer ${token}` }})
+        setReviewStatus(id, token){
+            return axios.post(`/reviews/set_review_status/${id}`, { headers: { Authorization: `Bearer ${token}` }})
         }
     },
     ReviewDelete: {
         async deleteReview(id, token){
             return await axios.delete(`/reviews/delete_review/${id}`, { headers: { Authorization: `Bearer ${token}` }})
+        }
+    },
+    ReviewGetAllStatus: {
+        getAllStatus(){
+            return axios.get(`/reviews/get_all_status`);
+        }
+    },
+    ReviewSubmitReview: {
+        async submitReview(data){
+            return axios.post(`/reviews/submit_review`, data);
         }
     }
 }

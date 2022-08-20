@@ -10,7 +10,6 @@ function MainSection() {
                 <p> Temp data continued </p>
             </ItemText>
             <Downarrow src="/images/down-arrow.svg" />
-
         </Wrap>
     )
 }
@@ -27,29 +26,34 @@ const Wrap = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
 `
 
 const ItemText = styled.div`
     padding-top: 20vh;
     text-align: center;
     h1 {
-        color: #fff;
-        font-size: 5em;
-        padding: 20px;
-        text-shadow: 1px 1px #000000;
-        // margin: 11px;
+        color: rgb(247, 245, 245);
+        font-size: 10em;
+        padding: 5px;
+        font-family: 'Bebas Neue', cursive;
+        text-shadow: 0px 15px 5px rgba(0,0,0,0.1),
+        10px 20px 5px rgba(0,0,0,0.05),
+        -10px 20px 5px rgba(0,0,0,0.05);
     }
 
     p {
-       color: rgb(60, 61, 61);;
+       color: rgb(60, 61, 61);
        font-size: 2.5em;
-       text-shadow: 1px 1px #fff;
+       font-family: 'Staatliches', cursive;
+       text-shadow: 2px 4px 4px rgba(255,255,255,1),
+       0px -5px 10px rgba(255,255,255,0.2);
     }
 `
 
 const Downarrow = styled.img`
     height: 100px;
-    // margin: 100px;
+    margin: 70px;
     animation: animateDown infinite 1.5s;
     overflow-x: hidden;
 `

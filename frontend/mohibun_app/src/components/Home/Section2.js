@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
+import {Link} from 'react-router-dom'
 
 //Cards Section 
 function Section2() {
@@ -7,38 +8,46 @@ function Section2() {
         <Wrap>
             <div className='p-5'>
                 <div className='row'>
-                    <div className='col-md-4 col-sm-12 mt-3'>
+                    <div className='col-lg-3 col-md-6 col-sm-12 mt-3'>
                         <CardAnimation>
-                            <button className='card bg-dark text-light'>
-                                <img className='card-img' src='/images/home1.jpg' alt="Card Image" />
+                            <Link to="/services/kitchen" className='card bg-dark'>
+                                <img className='card-img' src='/images/kitchen.jpg' alt="Card Image" />
                                 <div className='card-img-overlay'>
-                                    <h1 className='card-text'>Kitchen</h1>
-                                    <h6 className='card-text'>This is a kitchen</h6>
+                                    <h1 className='card-text text-center'>Kitchen</h1>
+                                    {/* <Link to="/" ></Link> */}
                                 </div>
-                            </button>
+                            </Link>
                         </CardAnimation>
                     </div>
 
-                    <div className='col-md-4 col-sm-12 mt-3'>
+                    <div className='col-lg-3 col-md-6 col-sm-12 mt-3'>
                         <CardAnimation>
-                             <button className='card bg-dark text-light'>
-                                <img className='card-img' src='/images/file17.jpeg' alt="Card Image" />
+                             <Link to="/services/bathroom" className='card bg-dark'>
+                                <img className='card-img' src='/images/bathroom_2.jpg' alt="Card Image" />
                                 <div className='card-img-overlay'>
-                                    <h1 className='card-text'>Bathroom</h1>
-                                    <h6 className='card-text'>This is a Bathroom</h6>
+                                    <h1 className='card-text text-center'>Bathroom</h1>
                                 </div>
-                            </button>
+                            </Link>
                         </CardAnimation>
                     </div>
-                    <div className='col-md-4 col-sm-12 mt-3'>
+                    <div className='col-lg-3 col-md-6 col-sm-12 mt-3'>
                         <CardAnimation>
-                             <button className='card bg-dark'>
-                                <img className='card-img' src='/images/home_renovation.jpg' alt="Card Image" />
+                             <Link to="/services/basement" className='card bg-dark'>
+                                <img className='card-img' src='/images/basement.jpg' alt="Card Image" />
                                 <div className='card-img-overlay'>
-                                    <h1 className='card-text'>Basement</h1>
-                                    <h6 className='card-text'>This is a Basement</h6>
+                                    <h1 className='card-text text-center'>Basement</h1>
                                 </div>
-                            </button>
+                            </Link>
+                        </CardAnimation>
+                    </div>
+                    <div className='col-lg-3 col-md-6 col-sm-12 mt-3'>
+                        <CardAnimation>
+                             <Link to="/services/fullhouse" className='card bg-dark'>
+                                <img className='card-img' src='/images/whole_house_2.jpg' alt="Card Image" />
+                                <div className='card-img-overlay'>
+                                    <h1 className='card-text text-center'>Whole House</h1>
+                                </div>
+                            </Link>
                         </CardAnimation>
                     </div>
                 </div>
@@ -84,46 +93,49 @@ const Textwrapper = styled.div`
     }
 `
 const CardAnimation = styled.div`
-// text-align: center;
-    display: flex;
-   
-    img {
-        justify-content: center;
-        height: 40vh;
-        width: 30vw;
-      
-    }
+    // .card-img-overlay {
+    //     top: 9%;
+    // }
 
-    @media (max-width: 1200px){
-       img {
-        height: 25vh;
-        width: 30vw;
-       }
-    }
-    @media (max-width: 767px){
-        img {
-            height: 35vh;
-            width: 85vw;
-           }
-    }
-    @media (max-width: 600px){
-        img {
-            height: 35vh;
-            width: 75vw;
-           }
+    img {
+        min-height: 40vh;
+        height: 100%;
+        width: 100%;
     }
 
     h1 {
-        color: #232323;
-        padding-top: 5em;
-        text-shadow: 2px 4px 3px rgba(0,0,0,0.7);
-    }
-    h6 {
-        color: #D7F4F5;
-        text-shadow: 2px 4px 3px rgba(0,0,0,0.7);
+        position: relative;
+        color: #FFFFEB;
+        padding-top: 50%;
+        text-shadow: 3px 4px 7px rgba(0,0,0,0.8);
+        font-family: 'Bebas Neue', cursive;
     }
 
+    img:hover{
+        object-fit: cover;
+    }
+    // @media (max-width: 830px){
+    //     img {
+    //         min-height: 50vh;
+    //         min-width: 25vw;
+    //         height: 100%;
+    //         width: 100%;
+    //     }
+    // }
+    // @media (max-width: 600px){
+    //     img {
+    //         height: 35vh;
+    //         width: 75vw;
+    //        }
+    // }
+
+
+    // // h6 {
+    // //     color: #D7F4F5;
+    // //     text-shadow: 2px 4px 3px rgba(0,0,0,0.7);
+    // // }
+
     &:hover{
-        animation: animateDown infinite 1.5s;  
+        animation: animateDown infinite 1.5s; 
     }
 `

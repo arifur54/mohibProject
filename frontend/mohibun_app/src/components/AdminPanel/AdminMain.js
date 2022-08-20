@@ -1,17 +1,18 @@
 import React, {useState , useContext} from 'react'
-// import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import { faRectangleAd } from '@fortawesome/free-solid-svg-icons'
 import ProjectPanel from './ProjectPanel'
 import ServicePanel from './ServicePanel';
 import ContactUs from './ContactUs';
 import styled from 'styled-components';
 import ReviewPanel from './ReviewPanel';
 import { Context } from '../../context/Context';
+import {FaProjectDiagram} from 'react-icons/fa';
+import {MdContacts, MdReviews, MdDesignServices } from 'react-icons/md';
 
 
 export default function AdminMain() {
     const [active, setPageState] = useState("services");
     const {user, dispatch } = useContext(Context);
+
 
     const handleLogOut = () => {
         dispatch({type: 'LOGOUT'})
@@ -23,7 +24,7 @@ export default function AdminMain() {
         <div className='container-fluid'>
             <div className='row flex-nowrap'>
                 <div className='col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark'>
-                    <div className='d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100'>
+                    <div className='d-flex flex-column align-items-center align-items-sm-start px-2 pt-2 text-white min-vh-100'>
                     <Wrapper>
                               <a className="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                                   <span className="fs-5 d-none d-sm-inline">Menu</span>
@@ -31,7 +32,7 @@ export default function AdminMain() {
                               <ul className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                                   <li className="nav-item">
                                       <button className="nav-link align-middle px-0" onClick={() => setPageState("services")}>
-                                        {/* <FontAwesomeIcon icon={faRectangleAd} /> */}
+                                        <MdDesignServices />
                                          <span className="ms-1 d-none d-sm-inline" >Service Panel</span>
                                       </button>
                                   </li>
@@ -50,19 +51,20 @@ export default function AdminMain() {
                 </li> */}
                                   <li>
                                       <button className="nav-link px-0 align-middle" onClick={() => setPageState("projects")}>
-                                        {/* <FontAwesomeIcon icon={faRectangleAd} />  */}
-                                        <span className="ms-1 d-none d-sm-inline" >Project Panel</span>
+                                        <FaProjectDiagram />
+                                        <span className="ms-2 ms-1 d-none d-sm-inline" >Project Panel</span>
                                       </button>
                                   </li>
                                   <li>
                                       <button className="nav-link px-0 align-middle" onClick={() => setPageState("contactus")}>
-                                        {/* <FontAwesomeIcon icon={faRectangleAd} /> */}
+                                         {/* <FaStar /> */}
+                                         <MdContacts />
                                          <span className="ms-1 d-none d-sm-inline" >Contact_Us Panel</span>
                                       </button>
                                   </li>
                                   <li>
                                       <button className="nav-link px-0 align-middle"  onClick={() => setPageState("review")}>
-                                        {/* <FontAwesomeIcon icon={faRectangleAd} />  */}
+                                        <MdReviews />
                                         <span className="ms-1 d-none d-sm-inline">Review Panel</span>
                                       </button>
                                   </li>
@@ -70,8 +72,8 @@ export default function AdminMain() {
                               <hr />
                               <div className="dropdown pb-4">
                                   <a className="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                                      <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30" className="rounded-circle" />
-                                      <span className="d-none d-sm-inline mx-1">loser</span>
+                                      {/* <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30" className="rounded-circle" /> */}
+                                      <span className="d-none d-sm-inline mx-1">Welcome {user.data.name}</span>
                                   </a>
                                   <ul className="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
                                       <li><button className="dropdown-item" >New project...</button></li>

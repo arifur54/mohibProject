@@ -104,13 +104,13 @@ function Header() {
                 <div className="collapse navbar-collapse"  id="navbarNav">
                     <ul className="navbar-nav mx-lg-auto text-center">
                         <li className="nav-item active">
-                            <Link className="nav-link" to="/" >Home</Link>
+                            <Link className="nav-link" to="/" >HOME</Link>
 
                         </li>
                         <li className="nav-item dropdown">
                             <Link className="nav-link dropdown-toggle" onClick={toggleOpen2} to="#" id="navbarDropdown"
                             data-toggle="dropdown" aria-haspopup="true" 
-                            aria-expanded="false">Services</Link>
+                            aria-expanded="false">SERVICES</Link>
                             <div className={`dropdown-menu ${dropdown2 ? 'show' : ''}`} aria-labelledby="navbarDropdown">
                                 <Link className='dropdown-item' onClick={toggleOpen2} to='/services/kitchen'>Kitchen</Link>
                                 <Link className='dropdown-item' onClick={toggleOpen2} to='/services/bathroom'>Bathroom</Link>
@@ -122,7 +122,7 @@ function Header() {
                         <li className="nav-item">
                             <Link className="nav-link dropdown-toggle" onClick={toggleOpen} to="#" id="navbarDropdown"
                             data-toggle="dropdown" aria-haspopup="true" 
-                            aria-expanded="false">Projects</Link>
+                            aria-expanded="false">PROJECTS</Link>
                             <div className={`dropdown-menu ${dropdown ? 'show' : ''}`} aria-labelledby="navbarDropdown">
                                 <Link className='dropdown-item' onClick={toggleOpen} to='projects/kitchen'>Kitchen</Link>
                                 <Link className='dropdown-item' onClick={toggleOpen} to='projects/bathroom'>Bathroom</Link>
@@ -131,10 +131,10 @@ function Header() {
                             </div>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/contactus" >Contact Us</Link>
+                            <Link className="nav-link" to="/contactus" >CONTACT US</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/reviews" >Reviews</Link>
+                            <Link className="nav-link" to="/reviews" >REVIEWS</Link>
                         </li>
                     </ul>
                 </div>
@@ -153,11 +153,18 @@ function Header() {
 export default Header
 
 const NavWrap = styled.div`
-    // padding: 1em;
     margin: 0%;
-    // Add opasity
     background-color: #7A79D6;  
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'DM Serif Display', serif;
     font-size: Larger;  
-    font-weight: bold;
+    
+    .navbar-light .navbar-nav .nav-link {
+        color: #F0F3F4;
+    }
+
+    .navbar-nav .nav-link {
+        padding-right: 5px;
+        padding-left: 50px;
+        text-align: end;
+    }
 `

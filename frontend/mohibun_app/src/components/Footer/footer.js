@@ -15,7 +15,7 @@ function footer() {
                 content.
               </p>
               
-                <Link className="btn btn-info" style={{color:"white"}} to='/login'>Admin login</Link>
+                <Link className="btn btn-info mb-4" style={{color:"white"}} to='/login'>Admin login</Link>
             </div>
 
             {/* <hr className="clearfix w-100 d-md-none pb-3"> */}
@@ -72,7 +72,7 @@ function footer() {
 export default footer;
 
 const FooterWrap = styled.div`
-    background-color: #90a3b0;
+    background-color: #79A7D6;
     h5 {
         color: #fff;
     }

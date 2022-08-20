@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useLocation } from 'react-router-dom'
+import Loading from '../Loading/Loading';
 
 function ProjectsKitchen() {
 
@@ -33,7 +33,8 @@ function ProjectsKitchen() {
     return (
         <div>
             {loading ? (
-                <h1>Loading....</h1>
+                <Loading />
+                
             ) : (
                 <ProjectType
                     // id={kitchenData._id}

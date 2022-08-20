@@ -1,11 +1,13 @@
 import React from 'react'
 import styled from "styled-components";
 import bootstrap from 'bootstrap/dist/js/bootstrap';
-import {useState, useEffect } from 'react'; 
+import {useState, useEffect,  useContext } from 'react'; 
 import {useParams, useNavigate} from 'react-router-dom';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Loading from '../../Loading/Loading';
+import { Context } from '../../../context/Context';
 
 function ImageGallery() {
 
@@ -15,6 +17,7 @@ function ImageGallery() {
   const [loading, setLoadingStatus] = useState(true);
   const [splitBeforeImage, setSplitBeforeImage] = useState([]);
   const [splitAfterImage, setSplitAfterImage] = useState([]);
+  const {user} = useContext(Context);
   
 
   useEffect(async () => {
@@ -78,10 +81,10 @@ function ImageGallery() {
   return (
     <div>
       {loading ? (
-        <h1>Loading...</h1>
+        <Loading />
       ) : (
-        <div>
-          <div className='m-4 p-5 text-white text-center bg-light'>
+        <div className='container-fluid'>
+          <div className='m-4 p-5 text-center bg-light'>
             <h1>{projectByIdData.projectType} Image Gallery
             <hr />
             </h1>
@@ -93,36 +96,44 @@ function ImageGallery() {
           <ImgGallery>
             <div className='container'>
               <div className='gallery'>
-                <h1 className='text-start text-white'> Before Images</h1>
-                <div className='row gy-4'>
+                <h1 className='text-start'> Before Images</h1>
+                <hr />
+                <div className='row gy-4 '>
                   {
                     splitBeforeImage.map((beforeImageData) => (
-                      <div key={beforeImageData} className="col-xl-3 col-lg-3 col-md-4 col-sm-12 col-xs-12">
+                      <div key={beforeImageData} className="hovorEff col-xl-3 col-lg-3 col-md-4 col-sm-12 col-xs-12">
                         <img src={beforeImageData} className="gallery-item" onClick={(e) => handleModle(e)} alt="Gallery1" />
                       </div>
                     ))
                   }
                 </div>
               </div>
-
+              <hr />
 
               <div className='gallery mt-4'>
-                <h1 className='text-start text-white'> After Images</h1>
+                <h1 className='text-start'> After Images</h1>
+                <hr />
                 <div className='row gy-4'>
                   {
                     splitAfterImage.map((afterImageData) => (
-                      <div key={afterImageData} className="col-xl-3 col-lg-3 col-md-4 col-sm-12 col-xs-12">
+                      <div key={afterImageData} className="hovorEff col-xl-3 col-lg-3 col-md-4 col-sm-12 col-xs-12">
                         <img src={afterImageData} className="gallery-item" onClick={(e) => handleModle(e)} alt="Gallery1" />
                       </div>
                     ))
                   }
                 </div>
               </div>
-                <div className='mt-5'>
+              <hr />
+              {
+                user && (
+                  <div className='mt-5'>
                   <button className='btn btn-danger float-end' onClick={handleClick}>Delete this image gallery</button>
                 </div>
+                )
+              }
+             
             </div>
-                  
+        
           
           </ImgGallery>
 
@@ -160,11 +171,25 @@ const ImgGallery = styled.div`
     padding: 80px 0;
 
     img{
-      width: 500px;
-      height: 400px;
+      object-fit: cover;
+      width: 600px;
+      height: 350px;
       max-width: 100%;
       max-height: 100%;
       cursor:pointer;
+      border-radius: 10px 5%;
+    }
+
+    .hovorEff{
+      // -webkit-transform: scale(1);
+	    // transform: scale(1);
+	    -webkit-transition: .5s ease-in-out;
+	    transition: .5s ease-in-out;
+    }
+
+    .hovorEff:hover{
+      -webkit-transform: scale(1.3);
+	    transform: scale(1.3);
     }
 
 
@@ -172,6 +197,7 @@ const ImgGallery = styled.div`
 
 const ModalImg = styled.div`
   img{
+
     max-width: 100%;
   }
 `

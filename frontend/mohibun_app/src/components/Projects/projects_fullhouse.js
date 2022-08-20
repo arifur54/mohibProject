@@ -3,6 +3,7 @@ import ProjectType from './projectType';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
+import Loading from '../Loading/Loading';
 
 function ProjectsFullHouse() {
     
@@ -31,7 +32,7 @@ function ProjectsFullHouse() {
     return (
         <div>
             {loading ? (
-                <h1>Loading....</h1>
+                <Loading />
             ) : (
                 <ProjectType
                     // id={kitchenData._id}

@@ -6,7 +6,7 @@ import { Context } from '../../context/Context';
 export default function ReviewPanel() {
 
   const [reviewData, setReviewData] = useState([]);
-  const [reviewStatus, setReviewStatus] = useState();
+  const [reviewStatus, setReviewStatus] = useState("");
   const [reviewId, setReviewId] = useState("");
   const {user} = useContext(Context)
 
@@ -15,7 +15,6 @@ export default function ReviewPanel() {
       try{
         const res = await API.ReviewGetAllData.getAll(user.token);
         setReviewData(res.data.data)
-        console.log(res.data.data)
       }catch(error){
         toast.error(`Something went wrong ${error}`)
       }
@@ -26,10 +25,10 @@ export default function ReviewPanel() {
 
  async function handleStatus(id, reviewStatus){
     try {
-      const resStatus = await API.ReviewSetStatus.setReviewStatus(id, user.token);
+      await API.ReviewSetStatus.setReviewStatus(id, user.token);
       setReviewStatus(reviewStatus)
+      toast.success(`Review Status successfully changed to ${reviewStatus}`)
     } catch (error) {
-      console.log(error);
       toast.error(`something went wrong! ${error.response.data}`);
     }
 
