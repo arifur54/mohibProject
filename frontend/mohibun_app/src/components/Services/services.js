@@ -11,8 +11,8 @@ function services() {
             <OurServiceWrapper>
                 <h1 className='text-white'>Our Service</h1>
             </OurServiceWrapper>
-            <Services_kitchen />
-            <Services_bathroom />
+            {/* <Services_kitchen />
+            <Services_bathroom /> */}
             {/* <SectionType
                 bg_colour='bg-dark'
                 text_colour='text-white'

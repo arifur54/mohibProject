@@ -14,7 +14,7 @@ function services_kitchen() {
                 essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
                 Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker
                 including versions of Lorem Ipsum."
-                images='/images/file17.jpeg'
+                images={['/images/kitchen_3.webp', '/images/file20.jpg','/images/kitchen_2.webp','/images/kitchen_4.jpg', '/images/kitchen_5.jpg']}
           />
       </div>
     

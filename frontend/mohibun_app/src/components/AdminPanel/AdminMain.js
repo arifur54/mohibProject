@@ -7,7 +7,8 @@ import ReviewPanel from './ReviewPanel';
 import { Context } from '../../context/Context';
 import {FaProjectDiagram} from 'react-icons/fa';
 import {MdContacts, MdReviews, MdDesignServices } from 'react-icons/md';
-
+import Register from '../Admin/Register';
+import ProfileSettings from './ProfileSettings';
 
 export default function AdminMain() {
     const [active, setPageState] = useState("services");
@@ -18,7 +19,7 @@ export default function AdminMain() {
         dispatch({type: 'LOGOUT'})
     }
 
-    console.log(user);
+    console.log(user.token);
   return (
     <div>
         <div className='container-fluid'>
@@ -76,9 +77,9 @@ export default function AdminMain() {
                                       <span className="d-none d-sm-inline mx-1">Welcome {user.data.name}</span>
                                   </a>
                                   <ul className="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-                                      <li><button className="dropdown-item" >New project...</button></li>
-                                      <li><button className="dropdown-item" >Settings</button></li>
-                                      <li><button className="dropdown-item" >Profile</button></li>
+                                      <li><button className="dropdown-item" onClick={() => setPageState("addAdmin")}>Add New Admin...</button></li>
+                                      <li><button className="dropdown-item" onClick={() => setPageState("Profile_Settings")}>Profile Settings</button></li>
+                                      {/* <li><button className="dropdown-item" >Profile</button></li> */}
                                       <li>
                                           <hr className="dropdown-divider" />
                                       </li>
@@ -94,6 +95,8 @@ export default function AdminMain() {
                     {active === "projects" && <ProjectPanel />}
                     {active === "contactus" && <ContactUs />}
                     {active === "review" && <ReviewPanel />}
+                    {active === "addAdmin" && <Register />}
+                    {active === 'Profile_Settings' && <ProfileSettings />}
                 </div>
             </div>
         </div>

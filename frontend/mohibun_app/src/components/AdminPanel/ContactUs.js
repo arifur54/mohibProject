@@ -10,7 +10,7 @@ export default function ContactUs() {
 
   const [contactUsData, setContactUsData] = useState([]);
   const [clientId, setClientId] = useState("");
-  const {user} = useContext(Context);
+  const {user, dispatch} = useContext(Context);
   
   useEffect(()=> {
     async function fetchData(){
@@ -19,6 +19,13 @@ export default function ContactUs() {
         setContactUsData(res.data.reverse());
         console.log(res.data)
       }catch(error){
+        if(error.response.data.error.name === 'TokenExpiredError'){
+          toast.error(`Token expired, you will now be logged out, Please login again.`)
+          return setTimeout(()=> {
+            dispatch({type: 'LOGOUT'})
+          },6000)
+  
+        }
         toast.error(`Something went wrong ${error}`)
       }    
     }

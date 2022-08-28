@@ -6,34 +6,49 @@ import { Context } from '../../context/Context';
 export default function ReviewPanel() {
 
   const [reviewData, setReviewData] = useState([]);
-  const [reviewStatus, setReviewStatus] = useState("");
+  const [reviewStatus, setReviewStatus] = useState();
   const [reviewId, setReviewId] = useState("");
-  const {user} = useContext(Context)
+  const {user, dispatch} = useContext(Context)
+
+  
 
   useEffect(() => {
     async function fetchData(){
       try{
         const res = await API.ReviewGetAllData.getAll(user.token);
+        console.log("data" + res.data.data)
         setReviewData(res.data.data)
       }catch(error){
+        if(error.response.data.error.name === 'TokenExpiredError'){
+          toast.error(`Token expired, you will now be logged out, Please login again.`)
+          return setTimeout(()=> {
+            dispatch({type: 'LOGOUT'})
+          },6000)
+  
+        }
         toast.error(`Something went wrong ${error}`)
       }
     }
 
     fetchData();
-  },[reviewStatus, reviewId])
+  },[reviewId, reviewStatus])
 
- async function handleStatus(id, reviewStatus){
+  // Most likely taking a bit of time to get response back from backend, need to add loading functionality. More testing required. 
+  const handleStatus = async(id, reviewStatus) => {
     try {
-      await API.ReviewSetStatus.setReviewStatus(id, user.token);
-      setReviewStatus(reviewStatus)
-      toast.success(`Review Status successfully changed to ${reviewStatus}`)
+      const res = await API.ReviewSetStatus.setReviewStatus(id, user.token);
+      console.log(res.data)
+      if(res){
+        setReviewStatus(reviewStatus)
+        toast.success(`Review Status successfully changed to ${res.data.msg}`)
+      } 
+      return;
     } catch (error) {
       toast.error(`something went wrong! ${error.response.data}`);
     }
-
-     
   }
+
+  console.log(reviewStatus)
 
   async function handleDelete(id){
     try {
@@ -58,13 +73,14 @@ export default function ReviewPanel() {
         <div className='col-md-8'>
           <h1 className='mb-3 mt-5 text-start'>Client Reviews</h1>
           <hr />
-          <h5 className='mb-3 text-start'>Total Messages: </h5>
+          <h5 className='mb-3 text-start'>Total Messages: {reviewData.length}</h5>
           {
             reviewData.map((data, index) => (
               <div className='row mt-2' key={index}>
                 <div className="col-sm-12">
                   <div className="card">
                     <div className="card-body">
+                      <h6 className="card-title text-start"><strong>Review #:</strong> {index}</h6>
                       <h6 className="card-title text-start"><strong>Full Name: {data.name}</strong></h6>
                       <h6 className="card-title text-start"><strong>email: {data.email}</strong></h6>
                       <h6 className="card-title text-start"><strong>Job Description: {data.description}</strong></h6>

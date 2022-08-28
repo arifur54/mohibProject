@@ -9,7 +9,8 @@ function ProjectsBathroom() {
   const [bathroomData, setbathroomData] = useState([]);
   const [loading, setLoadingStatus] = useState(true);
 
-  useEffect(async () => {
+  useEffect(() => {
+    async function fetchData (){
     const bathroomDataArr = []
     try {
       const result = await axios.get('/projects/getAll');
@@ -25,7 +26,8 @@ function ProjectsBathroom() {
       toast.error("Something went wrong:( " + error)
       setLoadingStatus(false);
     }
-
+  }
+  fetchData();
   }, []);
 
   return (
@@ -36,7 +38,7 @@ function ProjectsBathroom() {
                 <ProjectType
                     // id={kitchenData._id}
                     type={"Bathroom"}
-                    images={'/images/file17.jpeg'}
+                    images={'/images/bathroom_project.jpg'}
                     kitchenData={bathroomData}
                 />
             )}

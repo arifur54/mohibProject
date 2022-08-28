@@ -99,6 +99,7 @@ let adminLogin = async function(req, res) {
                 confirm: admin.confirm
             }
             if(cmp){
+                // Need to find a way to handle jwt expires
                 const token = jwt.sign({adminData}, process.env.JWT_SECRET, {expiresIn: '1d'})
                 res.status(200).send({
                     msg: "Authentication Confirmed",
@@ -126,17 +127,18 @@ let adminLogin = async function(req, res) {
 
 // This route need to be tested once frontend varification completes.. 
 let changePassword = async function(req, res){
-    const { token, newPassword } = req.body;
     try{
-        const admin = jwt.verify(token, process.env.JWT_SECRET)
-        if(!admin){
-            res.send({
+        // const admin = jwt.verify(token, process.env.JWT_SECRET)
+        adminExists = await Admin.findOne({email: req.body.email});
+        if(!adminExists){
+            res.status(404).send({
                 status: 'error',
                 msg: 'Admin not found'
             })
         }
-        const hashedPassword = await bcrypt.hash(newPassword, 10);
-        const _id = admin.id
+        const saltRounds = 10;
+        const hashedPassword = await bcrypt.hash(req.body.password, saltRounds);
+        const _id = adminExists.id
         await Admin.updateOne({_id} , {
             $set: {password: hashedPassword}
         } )
@@ -147,6 +149,7 @@ let changePassword = async function(req, res){
 
     }catch(error){
         res.status(404).send({
+            errorMsg: "Something Went wrong :(",
             error: error
         })
     }

@@ -14,7 +14,7 @@ function services_fullhouse() {
                 essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
                 Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker
                 including versions of Lorem Ipsum."
-                images='/images/file17.jpeg'
+                images={['/images/whole_house_4.webp', '/images/whole_house.jpg','/images/whole_house_3.jpg','/images/whole_house_5.jpg', '/images/whole_house_6.jpg']}
           />
       </div>
   );

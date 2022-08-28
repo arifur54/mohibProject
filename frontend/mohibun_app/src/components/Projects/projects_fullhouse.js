@@ -10,7 +10,8 @@ function ProjectsFullHouse() {
     const [fullHouseData, setfullHouseData] = useState([]);
     const [loading, setLoadingStatus] = useState(true);
 
-    useEffect(async () => {
+    useEffect(() => {
+        async function fetchData(){
         const fullHouseArr = []
         try {
             const result = await axios.get('/projects/getAll');
@@ -26,7 +27,9 @@ function ProjectsFullHouse() {
             toast.error("Something went wrong:( " + error)
             setLoadingStatus(false);
         }
+    }
 
+    fetchData();
     }, []);
 
     return (
@@ -37,7 +40,7 @@ function ProjectsFullHouse() {
                 <ProjectType
                     // id={kitchenData._id}
                     type={"Full House"}
-                    images={'/images/file17.jpeg'}
+                    images={'/images/whole_house_project.jpg'}
                     kitchenData={fullHouseData}
                 />
             )}

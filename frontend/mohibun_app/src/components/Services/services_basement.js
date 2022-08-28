@@ -14,7 +14,7 @@ function services_basement() {
                 essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
                 Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker
                 including versions of Lorem Ipsum."
-                images='/images/file17.jpeg'
+                images={['/images/basement_5.webp', '/images/basement_2.webp','/images/basement_3.jpg','/images/basement_4.webp', '/images/finishedbasement.jpg']}
           />
     </div>
   );

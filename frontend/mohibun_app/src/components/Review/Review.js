@@ -8,16 +8,9 @@ import {FaStar} from 'react-icons/fa';
 
 
 
-
-const colors = {
-    MKPurple: "#7A79D6",
-    brown: "#d6a779"
-    
-};
-
-
 export default function Review() {
 
+    
     const [reviewData, setReviewData] = useState([]);
     const [hoverValue, setHoverValue] = useState(undefined);
     const stars = Array(5).fill(0)
@@ -91,14 +84,14 @@ export default function Review() {
     
   return (
     <Wrapper>
-      <OurProjectWrapper>
+      <OurReviewWrapper>
         <h1>Please Let us know how we did?</h1>
-      </OurProjectWrapper>
+      </OurReviewWrapper>
         <div className="container">
               <div className="row">
                   <div className="col-5 mt-3">
-                      <h1 className="text-start">Client Reviews</h1>
-                      <h6 className="text-start">Total Review: <strong>{reviewData.length}</strong></h6>
+                      <h2 className="text-start">Client Reviews</h2>
+                      <h5 className="text-start">Total Review: <strong>{reviewData.length}</strong></h5>
             
                   </div>
                   <div className="col-2 mt-3">
@@ -108,7 +101,7 @@ export default function Review() {
                   <div className="col-5 mt-5">
                       <button
                           type="button"
-                          className="btn btn-primary"
+                          className="btn btn-primary float-end"
                           data-bs-toggle="modal"
                           data-bs-target="#exampleModal"
                       >
@@ -122,7 +115,7 @@ export default function Review() {
                     reviewData.map((data, index) => (
                         <div className='row mt-2' key={index}>
                             <div className="col-sm-12">
-                                <div className="card">  
+                                <div className="card mb-2">  
                                     <div className="card-body">
                                         <h6 className="card-title text-start"><strong>Client Rating: </strong> {[...Array(parseInt(data.star))].map((_,index) => (<FaStar key={index} size={20} color='#ffa534' />))} - By - {data.name}</h6>
                                         <h6 className="card-title text-start"><strong>Description of the Job: </strong>  {data.description} </h6>
@@ -242,7 +235,7 @@ export default function Review() {
                                         </div>
                                     }
                                     </div>
-                                  <div className="modal-footer">
+                                  <div className="modal-footer ">
                                       <button
                                           type="button"
                                           className="btn btn-secondary"
@@ -261,43 +254,68 @@ export default function Review() {
                   </div>
               </div>
         </div>
+     
         < ToastContainer />
     </Wrapper>
   );
 }
 
 
-const OurProjectWrapper = styled.div`
-display: flex;
-Flex-direction: column;
-justify-content: start;
-background-image: url(images/reviewImg.webp);
-padding-top: 10em;
-padding-bottom: 10em;
-background-size: cover;
-background-position: 5% 55%;
-background-repeat: no-repeat;
-h1{
-    justify-content: center;
-    opacity: 80%;
-    color: white;
-    margin-bottom: 0px;
-    text-shadow: 1px 1px #000000;
-    animation: glow 10s ease-in-out infinite alternate;
-}
+const OurReviewWrapper = styled.div`
+        background-color: #AA9974;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg fill-opacity='0.22'%3E%3Cpolygon fill='%23988968' points='1600 160 0 460 0 350 1600 50'/%3E%3Cpolygon fill='%2384775a' points='1600 260 0 560 0 450 1600 150'/%3E%3Cpolygon fill='%236c6149' points='1600 360 0 660 0 550 1600 250'/%3E%3Cpolygon fill='%234c4434' points='1600 460 0 760 0 650 1600 350'/%3E%3Cpolygon fill='%23000000' points='1600 800 0 800 0 750 1600 450'/%3E%3C/g%3E%3C/svg%3E");
+        background-attachment: fixed;
+        padding-top: 5em;
+        padding-bottom: 5em;
+        background-size: cover;
+        background-repeat: no-repeat;
+        border-radius:0 0 50px 50px;
+        h1{
+            justify-content: center;
+            opacity: 80%;
+            color: white;
+            margin-bottom: 0px;
+            font-weight: bold;
+            text-shadow: 1px 1px #000000;
+            // animation: glow 10s ease-in-out infinite alternate;
+        }
 ` 
+
+
 const Wrapper = styled.div`
-    // background-color: rgb(30 58 138);
     min-height: 80vh;
-    padding-bottom: 25px;
-`
-
-const ImageBody = styled.div`
-    justify-content: bottom;
-    background-image: url(images/reviewImg.webp);
+    background-color: #D4C098;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg fill-opacity='0.22'%3E%3Cpolygon fill='%23beac88' points='1600 160 0 460 0 350 1600 50'/%3E%3Cpolygon fill='%23a49576' points='1600 260 0 560 0 450 1600 150'/%3E%3Cpolygon fill='%23867960' points='1600 360 0 660 0 550 1600 250'/%3E%3Cpolygon fill='%235f5644' points='1600 460 0 760 0 650 1600 350'/%3E%3Cpolygon fill='%23000000' points='1600 800 0 800 0 750 1600 450'/%3E%3C/g%3E%3C/svg%3E");
+    background-attachment: fixed;
     background-size: cover;
-    // padding-top: 100em;
-    // padding-bottom: 10em;
-    background-repeat: no-repeat;
+    padding-bottom: 5em;
+    
+    h1 {
+        font-family: 'Josefin Sans', sans-serif;
+        font-size: 50px;
+    }
 
+    h2 {
+     font-family: 'Aboreto', cursive;
+     font-weight: bold;
+     color: aliceblue;
+     text-shadow: 1px 1px #000000;
+    }
+
+    h5 {
+        font-family: 'Playfair Display', serif;
+        font-weight: bold;
+        color: aliceblue;
+        text-shadow: 1px 1px #000000;
+    }
+
+    h6 {
+        font-family: 'Josefin Sans', sans-serif;
+        font-size: 22px;
+    }
+    p {
+        font-family: 'Josefin Sans', sans-serif;
+        font-size: 22px;
+    }
 `
+

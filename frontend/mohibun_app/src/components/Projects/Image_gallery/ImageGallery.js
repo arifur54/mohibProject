@@ -20,12 +20,14 @@ function ImageGallery() {
   const {user} = useContext(Context);
   
 
-  useEffect(async () => {
+  useEffect(() => {
+    async function fetchData(){
     try{
       const result = await axios.get(`/projects/getAllById/${params.gId}`)
       if(!result){
         toast.error("No results found, Admin needs to add project before it can be shown.")
       }
+      console.log(result)
       const splittedBeforeImg = [];
       const splittedAfterImg = [];
       for(let bImg of result.data.data.beforeImage){
@@ -47,18 +49,19 @@ function ImageGallery() {
       toast.error("Something went wrong:( " + error)
       setLoadingStatus(false);
     }
-   
-  }, [])
+  }
+
+  fetchData();
+  }, [params.gId])
 
 
 
   const handleModle = (e) => {
     if(e.target.classList.contains("gallery-item")){
       const src = e.target.getAttribute("src");
-      // console.log(src)
       document.querySelector('.modal-img').src = src; 
       const myModal = new bootstrap.Modal(document.getElementById('gallery-popup'));
-      // console.log(myModal)
+  
       
       myModal.show();
     }

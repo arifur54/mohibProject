@@ -34,8 +34,23 @@ export const API = {
         }
     },
     ReviewSubmitReview: {
-        async submitReview(data){
+        submitReview(data){
             return axios.post(`/reviews/submit_review`, data);
+        }
+    },
+    AdminAddNewAdmin: {
+        addAdmin(data, token){
+            return axios.post(`/admin/addAdmin`, data, { headers: { Authorization: `Bearer ${token}` }})
+        }
+    },
+    AdminLoginAdmin: {
+        adminLogin(data){
+            return axios.post(`/admin/adminLogin`, data);
+        }
+    },
+    AdminChangeAdminPassword: {
+        changeAdminPassword(data, token){
+            return axios.post(`/admin/change_password`, data, { headers: { Authorization: `Bearer ${token}` }})
         }
     }
 }

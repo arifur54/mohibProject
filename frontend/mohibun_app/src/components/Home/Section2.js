@@ -84,13 +84,16 @@ const Textwrapper = styled.div`
     text-align: start;
     h1 {
         color: aliceblue;
+        font-family: 'Aboreto', cursive;
     }
     h4{
         color: aliceblue;
+        font-family: 'Playfair Display', serif;
     }
     p{
         color: aliceblue;
     }
+    
 `
 const CardAnimation = styled.div`
     // .card-img-overlay {

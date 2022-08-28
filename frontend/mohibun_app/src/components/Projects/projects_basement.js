@@ -9,7 +9,8 @@ function ProjectsBasement() {
   const [basementData, setBasementData] = useState([]);
   const [loading, setLoadingStatus] = useState(true);
 
-  useEffect(async () => {
+  useEffect(() => {
+    async function fetchData() {
       const baseMentDataArr = []
       try {
           const result = await axios.get('/projects/getAll');
@@ -25,7 +26,8 @@ function ProjectsBasement() {
           toast.error("Something went wrong:( " + error)
           setLoadingStatus(false);
       }
-
+    }
+    fetchData();
   }, []);
 
   return (
@@ -36,7 +38,7 @@ function ProjectsBasement() {
                 <ProjectType
                     // id={kitchenData._id}
                     type={"Basement"}
-                    images={'/images/file17.jpeg'}
+                    images={'/images/basement_project.webp'}
                     kitchenData={basementData}
                 />
             )}

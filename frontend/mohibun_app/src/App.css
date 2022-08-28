@@ -31,16 +31,15 @@
 #btn-custom {
   margin-top: 5em;
   border-radius: 25px;
-  color: white;
+  color: rgb(44, 44, 44);
   opacity: 80%;
-  border: 2px solid #F8F8FF;
-  /* width: 200px; */
+  border: 2px solid rgb(44, 44, 44);
   padding: 20px;
   font-size: 1.5em;
 }
 #btn-custom:hover{
   background-color: #F8F8FF; /* Green */
-  color: black;
+  color: rgb(44, 44, 44);
   opacity: 80%;
   font-size: 1.5em;
 }
@@ -64,6 +63,7 @@ font-family: 'Bebas Neue', cursive;
 font-family: 'DM Serif Display', serif;
 font-family: 'Playfair Display', serif;
 font-family: 'Staatliches', cursive;
+font-family: 'Josefin Sans', sans-serif;
 
 
 */

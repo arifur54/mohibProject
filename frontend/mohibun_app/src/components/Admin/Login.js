@@ -7,6 +7,7 @@ import * as Yup from 'yup';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
+import { API } from '../../api/api';
 
 export default function Login() {
     let navigate = useNavigate();
@@ -27,9 +28,7 @@ export default function Login() {
             const {email, password} = formData;
             
             try{
-                const res = await axios.post('/admin/adminLogin', {
-                    email, password
-                }) 
+                const res = await API.AdminLoginAdmin.adminLogin(formData);
                    
                 if(res.data.errorMsg){
                     toast.error(`Unauthorized! ${res.data.errorMsg}, please try again!`);  
@@ -50,20 +49,18 @@ export default function Login() {
                     dispatch({type: "LOGIN_FAILURE"})
                 }
             }
-     
-        
-            //toast('Test Notification', {position: toast.POSITION.TOP_CENTER})
-            //console.log('i m here')
+    
         }
     })
 
   return (
     <Wrapper>
+        <div className='container'>
             <div className='row'>
-              <div className='col-lg-4 col-md-4 col-sm-2 col-xs-2'>
+              <div className='col-lg-4 col-md-4 col-sm-12 col-xs-12'>
 
               </div>
-              <div className='col-lg-4 col-md-4 col-sm-8 col-xs-8'>
+              <div className='col-lg-4 col-md-4 col-sm-12 col-xs-12'>
               <h2 className='mb-5'>Admin Login</h2>
                 <form onSubmit={formik.handleSubmit}>
                       <div className="mb-3">
@@ -91,9 +88,10 @@ export default function Login() {
                       <button type="submit" className="btn btn-primary">Login</button>
                 </form>
               </div>
-              <div className='col-lg-4 col-md-4 col-sm-2 col-xs-2'>
+              <div className='col-lg-4 col-md-4 col-sm-12 col-xs-12'>
               </div>
             </div>
+        </div>
     </Wrapper>
   )
 }
@@ -102,8 +100,8 @@ export default function Login() {
 const Wrapper = styled.div`
     background-color: hsl(218, 41%, 15%);
     padding-bottom: 5em;
-    padding-top: 10em;
-    height: 80vh;
+    padding-top: 7em;
+    min-height: 80vh;
     background-image: radial-gradient(
         650px circle at 0% 0%, 
         hsl(218, 41%, 35%) 15%,

@@ -11,7 +11,8 @@ function ProjectsKitchen() {
     const [kitchenData, setKitchenData] = useState([]);
     const [loading, setLoadingStatus] = useState(true);
 
-    useEffect(async () => {
+    useEffect(() => {
+        async function fetchData(){
         const kitDataArr = []
         try {
             const result = await axios.get('/projects/getAll');
@@ -27,7 +28,9 @@ function ProjectsKitchen() {
             toast.error("Something went wrong:( " + error)
             setLoadingStatus(false);
         }
+        }
 
+        fetchData();
     }, []);
 
     return (
@@ -39,7 +42,7 @@ function ProjectsKitchen() {
                 <ProjectType
                     // id={kitchenData._id}
                     type={"Kitchen"}
-                    images={'/images/file17.jpeg'}
+                    images={'/images/kitchen_project.webp'}
                     kitchenData={kitchenData}
                 />
             )}

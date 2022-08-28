@@ -7,7 +7,31 @@ import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 
 
+
 export default function Contact_Us_LP() {
+
+    const OurContactWrapper = styled.div`
+        background-color: #AA9974;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg fill-opacity='0.22'%3E%3Cpolygon fill='%23988968' points='1600 160 0 460 0 350 1600 50'/%3E%3Cpolygon fill='%2384775a' points='1600 260 0 560 0 450 1600 150'/%3E%3Cpolygon fill='%236c6149' points='1600 360 0 660 0 550 1600 250'/%3E%3Cpolygon fill='%234c4434' points='1600 460 0 760 0 650 1600 350'/%3E%3Cpolygon fill='%23000000' points='1600 800 0 800 0 750 1600 450'/%3E%3C/g%3E%3C/svg%3E");
+        background-attachment: fixed;
+        padding-top: 2em;
+        padding-bottom: 2em;
+        background-size: cover;
+        background-repeat: no-repeat;
+        border-radius:0 0 50px 50px;
+        margin-bottom: 25px;
+        
+        h1{
+            opacity: 80%;
+            padding: 1.5em;
+            color: white;
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 50px;
+            font-weight: bold;
+            text-shadow: 1px 1px #000000;
+            // animation: glow 10s ease-in-out infinite alternate;
+        }
+`
 
     const [optMenuError, setOptMenuError] = useState({errTheme: "info", errText: "Please select an option to continue..."});
    
@@ -60,8 +84,9 @@ export default function Contact_Us_LP() {
   return (
     <div>
         <Wrapper>
-              <OurProjectWrapper>
-              </OurProjectWrapper>
+              <OurContactWrapper>
+                    <h1>Contact Us</h1>
+              </OurContactWrapper>
 
               <div className='container'>
                 <div className='row'>
@@ -199,24 +224,12 @@ export default function Contact_Us_LP() {
 
 
 const Wrapper = styled.div`
-    background-color: hsl(210, 47%, 61%);
-    padding-bottom: 5em;
-    background-image: radial-gradient(
-        650px circle at 0% 0%, 
-        hsl(210, 47%, 70%) 15%,
-        hsl(210, 47%, 60%) 35%,
-        hsl(210, 47%, 50%) 75%,
-        hsl(210, 47%, 50%) 80%,
-        transparent 100%
-    ),
-    radial-gradient(
-        1250px circle at 100% 100%, 
-        hsl(210, 47%, 70%) 15%,
-        hsl(210, 47%, 60%) 35%,
-        hsl(210, 47%, 50%) 75%,
-        hsl(210, 47%, 50%) 80%,
-        transparent 100%
-    );
+    background-color: #D4C098;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg fill-opacity='0.22'%3E%3Cpolygon fill='%23beac88' points='1600 160 0 460 0 350 1600 50'/%3E%3Cpolygon fill='%23a49576' points='1600 260 0 560 0 450 1600 150'/%3E%3Cpolygon fill='%23867960' points='1600 360 0 660 0 550 1600 250'/%3E%3Cpolygon fill='%235f5644' points='1600 460 0 760 0 650 1600 350'/%3E%3Cpolygon fill='%23000000' points='1600 800 0 800 0 750 1600 450'/%3E%3C/g%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: cover;
+    padding-bottom: 3em;
+    min-height: 80vh;
 
     h2 {
         text-align: left;
@@ -274,20 +287,3 @@ const RigtSide = styled.div`
 `
 
 
-const OurProjectWrapper = styled.div`
-background-image: url(images/contact-us-img.webp);
-padding-top: 25em;
-padding-bottom: 5em;
-background-size: cover;
-background-position: 5% 35%;
-background-repeat: no-repeat;
-margin-bottom: 25px;
-h1{
-    opacity: 80%;
-    padding: 1.5em;
-    color: white;
-    margin-bottom: 0px;
-    text-shadow: 1px 1px #000000;
-    animation: glow 10s ease-in-out infinite alternate;
-}
-` 
