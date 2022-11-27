@@ -17,7 +17,7 @@ export default function ReviewPanel() {
       try{
         const res = await API.ReviewGetAllData.getAll(user.token);
         console.log("data" + res.data.data)
-        setReviewData(res.data.data)
+        await setReviewData(res.data.data)
       }catch(error){
         if(error.response.data.error.name === 'TokenExpiredError'){
           toast.error(`Token expired, you will now be logged out, Please login again.`)
@@ -89,7 +89,7 @@ export default function ReviewPanel() {
                       <p className="card-title text-start"><strong>message:  {data.reviewMessage}</strong></p>
 
                       <button className="btn btn-danger float-end" onClick={() => { handleDelete(data._id) }}>delete</button>
-                      <button className="btn btn-warning float-end me-2" onClick={() => { handleStatus(data._id, data.reviewStatus) }}>Change Review Status</button>
+                      <button className="btn btn-warning float-end me-2" onClickCapture={() => { handleStatus(data._id, data.reviewStatus) }}>Change Status</button>
                     </div>
                   </div>
                 </div>
