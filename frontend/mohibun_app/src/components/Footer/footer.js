@@ -6,7 +6,7 @@ function footer() {
   return (
     <FooterWrap>
       <div className="page-footer font-small cyan darken-3 pt-4">
-        <div className="container-fluid text-center text-md-left">
+        <div className="container-fluid text-center text-md-left mt-3">
           <div className="row">
             <div className="col-md-6 mt-md-0 mt-3">
               <h5 className="text-uppercase">Footer Content</h5>
@@ -14,7 +14,7 @@ function footer() {
                 Here you can use rows and columns to organize your footer
                 content.
               </p>     
-                <Link className="btn btn-info mb-4" style={{color:"white"}} to='/login'>Admin login</Link>
+              <Link className="btn btn-outline-info p-2 fs-5" style={{color:"white"}} to='/login'>Admin Login</Link>
             </div>
 
             {/* <hr className="clearfix w-100 d-md-none pb-3"> */}
@@ -24,16 +24,16 @@ function footer() {
 
               <ul className="list-unstyled">
                 <li>
-                  <Link to="#">Kitchen</Link>
+                  <Link className="fs-5 link-light" to="#">Kitchen</Link>
                 </li>
                 <li>
-                  <Link to="#">Bathroom</Link>
+                  <Link  className="fs-5 link-light" to="#">Bathroom</Link>
                 </li>
                 <li>
-                  <Link to="#">Basement</Link>
+                  <Link  className="fs-5 link-light" to="#">Basement</Link>
                 </li>
                 <li>
-                  <Link to="#">FullHouse</Link>
+                  <Link  className="fs-5 link-light" to="#">FullHouse</Link>
                 </li>
               </ul>
             </div>
@@ -43,16 +43,16 @@ function footer() {
 
               <ul className="list-unstyled">
                 <li>
-                  <a href="#!">Link 1</a>
+                  <Link className="fs-5 fst-italic link-light" to="#">Kitchen</Link>
                 </li>
                 <li>
-                  <a href="#!">Link 2</a>
+                  <Link className="fs-5 fst-italic link-light" to="#">Kitchen</Link>
                 </li>
                 <li>
-                  <a href="#!">Link 3</a>
+                  <Link className="fs-5 fst-italic text-formatter link-light" to="#">Kitchen</Link>
                 </li>
                 <li>
-                  <a href="#!">Link 4</a>
+                  <Link className="fs-5 fst-italic link-light text-formatter" to="#">Kitchen</Link>
                 </li>
               </ul>
             </div>
@@ -62,7 +62,7 @@ function footer() {
         <div className="footer-copyright text-center py-3 text-light">
           <p>
             © {new Date().getFullYear()} Copyright:
-            <a href="https://mdbootstrap.com/"> MKBuilders.com</a>
+            <a className="link-info" href="https://mdbootstrap.com/"> MKBuilders.com</a>
           </p>
         </div>
       </div>
@@ -82,6 +82,14 @@ const FooterWrap = styled.div`
     }
     p{
         color: #fff
+    }
+
+    li > a {
+      text-decoration: none;
+    }
+
+    li > a:hover {
+      text-decoration: underline;
     }
 
 `

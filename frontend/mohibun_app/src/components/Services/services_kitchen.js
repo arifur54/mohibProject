@@ -6,14 +6,14 @@ function services_kitchen() {
       <div>
           <SectionType
               type='Kitchen Renovations'
-              title="This is the kitchen title"
-              paragraph="Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                It has survived not only five centuries, but also the leap into electronic typesetting, remaining
-                essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
-                Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker
-                including versions of Lorem Ipsum."
+              title="Let's Transforming Your Kitchen into a Masterpiece!"
+              paragraph1="A kitchen is a special room where family and friends gather to create lasting memories. It's a place where laughter and love abound. The kitchen is the heart of the home. It's a place where memories are made and shared.
+              It's a place of comfort and healing. The kitchen is a place of hope and happiness."
+              paragraph2="Kitchen design has come a long way in recent years. In the past, kitchens were small, dark, and cramped. Today, however, they are often large, light, and airy. This change is due, in part, to the popularity of open floor plans. 
+              kitchens are now often seen as the heart of the home, and as such, they are designed to be both functional and stylish."
+              paragraph3="One of the most popular trends in kitchen design is the use of white. White cabinets, countertops, and walls reflect light and make the space seem bigger. Another popular trend is the use of stainless steel appliances. 
+              These not only look sleek and modern, but they are also easy to keep clean."
+              paragraph4="Another popular trend is the use of natural materials. Stone countertops, for example, add a touch of luxury to any kitchen. Wood floors are also popular, as they add warmth to the space. Finally, kitchens are now often equipped with the latest in technology. Smart appliances, for example, can make cooking and cleaning easier than ever before. "
                 images={['/images/kitchen_3.webp', '/images/file20.jpg','/images/kitchen_2.webp','/images/kitchen_4.jpg', '/images/kitchen_5.jpg']}
           />
       </div>

@@ -6,8 +6,11 @@ import {Link} from 'react-router-dom';
 function sectionT(props) {
   let type = props.type;
   let title = props.title;
-  let paragraph = props.paragraph;
-  let img1, img2, img3, img4, img5;
+  let paragraph1 = props.paragraph1;
+  let paragraph2 = props.paragraph2;
+  let paragraph3 = props.paragraph3;
+  let paragraph4 = props.paragraph4;
+  let img1, img2, img3, img4, img5, img6, img7;
 
   for(let x = 0; x < props.images.length; x++){
     img1 = props.images[0];
@@ -56,9 +59,59 @@ function sectionT(props) {
           </div>
           </TitleWrapper>
         <div className='container'>
-          <h2>{title}</h2>
-          <p>{paragraph}</p>
-          <Link className='btn' id="btn-custom" to="#">Click here More info</Link>
+          <ContentWrapper>
+            <h2>{title}</h2>
+              { paragraph1 && paragraph2 && paragraph3 && paragraph4 &&
+                <div className='row'>
+                  <div className='col-md-7 col-sm-12'>
+                  <p className='text-lg-start text-center'>{paragraph1}</p> 
+                  <p className='text-lg-start text-center'>{paragraph2}</p>
+                  </div>
+                  <div className='col-md-5 col-sm-12'>
+                    <img className='img-fluid' src={img5} />
+                  </div>
+                  <div className='col-md-7 col-sm-12'>
+                    <p className='text-lg-start text-center'>{paragraph3}</p>  
+                    <p className='text-lg-start text-center'>{paragraph4}</p> 
+                  </div>
+                  <div className='col-md-5 col-sm-12'>
+                    <img className='img-fluid' src={img4} />
+                  </div>
+                </div>
+                
+              }
+              {/* { paragraph2 && 
+                <div className='row'>
+                 <div className='col-md-7 col-sm-12'>
+                  <p className='text-lg-start text-center'>{paragraph2}</p> 
+                  </div>
+                  <div className='col-md-5 col-sm-12'>
+                    <img className='img-fluid' src={img2} />
+                  </div>
+                </div> 
+              }
+              {  
+                <div className='row'>
+                  <div className='col-md-7 col-sm-12'>
+                  <p className='text-lg-start text-center'>{paragraph3}</p> 
+                  </div>
+                  <div className='col-md-5 col-sm-12'>
+                    <img className='img-fluid' src={img2} />
+                  </div>
+                </div>
+              }
+              { paragraph4 && 
+                <div className='row'>
+                  <div className='col-md-7 col-sm-12'>
+                  <p className='text-lg-start text-center'>{paragraph4}</p> 
+                  </div>
+                  <div className='col-md-5 col-sm-12'>
+                    <img className='img-fluid' src={img2} />
+                  </div>
+                </div>  
+              } */}
+              <Link className='btn' id="btn-custom" to="/projects/kitchen">Click Here To View More Of Our Work</Link>
+          </ContentWrapper>
         </div>
       </div>
     </Wrapper>
@@ -132,7 +185,22 @@ const TitleWrapper = styled.div`
  background-color: rgb(44, 44, 44);
 
 `
+const ContentWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
+  p {
+    margin: 10% 0%;
+  }
+
+  img {
+    border-radius: 25% 10%;
+    margin: 15% 5%;
+    // width: 75%;
+    // height: 35%;
+  }
+`
 
 
 

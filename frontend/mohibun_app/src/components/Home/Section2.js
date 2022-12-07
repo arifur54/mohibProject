@@ -7,7 +7,21 @@ function Section2() {
     return (
         <Wrap>
             <div className='p-5'>
-                <div className='row'>
+            <div className='container-fluid'>
+                <div className='d-sm-flex'>
+                    <Textwrapper> 
+                        <h1> Transform Your Home with Us!</h1>
+                        {/* <h4 className='text-left text-light'>Write sub header here</h4> */}
+                        <p className='text-light lead my-4'>
+                        Looking to renovate your home but don't know where to start? Our home renovation service is here to help! We'll work with you to come up with a plan that fits your budget and needs,
+                        and we'll handle everything from start to finish. We have been proudly renovating homes for over 10 years and have the experience and expertise to get the job done right. Whether
+                        you're looking to update your kitchen, bathroom, basement, whole house or just want to give your home a fresh new look, we're here to help.
+                        </p>
+                        <Link className='btn btn-outline-light my-2 p-3' to="/contactus"> Contact us today to get started! </Link>
+                    </Textwrapper>
+                </div>
+            </div>
+                <div className='row pb-3'>
                     <div className='col-lg-3 col-md-6 col-sm-12 mt-3'>
                         <CardAnimation>
                             <Link to="/services/kitchen" className='card bg-dark'>
@@ -52,24 +66,6 @@ function Section2() {
                     </div>
                 </div>
             </div>
-
-            <div className='container-fluid p-5'>
-                <div className='d-sm-flex'>
-                    <Textwrapper>
-                        <h1>Write Header here</h1>
-                        <h4 className='text-left text-light'>Write sub header here</h4>
-                        <p className='text-light lead my-4'>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                            when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                            It has survived not only five centuries, but also the leap into electronic typesetting, remaining
-                            essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
-                            Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker
-                            including versions of Lorem Ipsum.
-                        </p>
-                    </Textwrapper>
-                </div>
-            </div>
         </Wrap >
     )
 }
@@ -82,6 +78,7 @@ background-color: rgb(44, 44, 44);
 `
 const Textwrapper = styled.div`
     text-align: start;
+    margin: 5%;
     h1 {
         color: aliceblue;
         font-family: 'Aboreto', cursive;
@@ -92,6 +89,7 @@ const Textwrapper = styled.div`
     }
     p{
         color: aliceblue;
+        font-family: 'Playfair Display', serif;
     }
     
 `
