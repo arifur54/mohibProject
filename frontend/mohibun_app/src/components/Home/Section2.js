@@ -17,7 +17,7 @@ function Section2() {
                         and we'll handle everything from start to finish. We have been proudly renovating homes for over 10 years and have the experience and expertise to get the job done right. Whether
                         you're looking to update your kitchen, bathroom, basement, whole house or just want to give your home a fresh new look, we're here to help.
                         </p>
-                        <Link className='btn btn-outline-light my-2 p-3' to="/contactus"> Contact us today to get started! </Link>
+                        <Link className='btn btn-outline-light my-2 p-3 cinzel-font' to="/contactus"> Contact us today to get started! </Link>
                     </Textwrapper>
                 </div>
             </div>
@@ -115,6 +115,7 @@ const CardAnimation = styled.div`
     img:hover{
         object-fit: cover;
     }
+
     // @media (max-width: 830px){
     //     img {
     //         min-height: 50vh;

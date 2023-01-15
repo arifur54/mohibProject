@@ -89,7 +89,7 @@ export default function Login() {
                                 <ToastContainer />
                             </div> 
                             <div className='d-grid'> 
-                                <button type="submit" className='btn btn-outline-dark btn-lg'><strong>Login</strong></button>
+                                <button type="submit" className='btn btn-outline-dark btn-lg cinzel-font'><strong>Login</strong></button>
                             </div>  
                         </form>
                 </RightSide>

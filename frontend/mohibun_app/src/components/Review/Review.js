@@ -101,7 +101,7 @@ export default function Review() {
                   <div className="col-5 mt-5">
                       <button
                           type="button"
-                          className="btn btn-secondary btn-lg float-end"
+                          className="btn btn-secondary btn-lg float-end cinzel-font"
                           data-bs-toggle="modal"
                           data-bs-target="#exampleModal"
                       >

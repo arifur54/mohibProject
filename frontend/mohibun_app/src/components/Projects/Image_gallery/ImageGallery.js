@@ -195,6 +195,9 @@ const ImgGallery = styled.div`
 	    transform: scale(1.3);
     }
 
+    button {
+      font-family: 'Playfair Display',serif;
+    }
 
 `
 

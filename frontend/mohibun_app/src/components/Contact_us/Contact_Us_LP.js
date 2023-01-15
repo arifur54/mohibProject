@@ -208,7 +208,7 @@ export default function Contact_Us_LP() {
                                         }
                                     </div>
                                 </div>
-                                <button type="submit" className="btn btn-primary">Submit</button>
+                                <button type="submit" className="btn btn-outline-success btn-lg cinzel-font">Submit</button>
                             </form>
                         </RigtSide>
                     </div>
@@ -246,10 +246,6 @@ const Wrapper = styled.div`
         flex: none;
     }
 
-    button:hover{
-        background-color: #f0f0f5;
-        opacity: 80%;
-    }
 
 `
 
@@ -264,6 +260,7 @@ const LeftSide = styled.div`
         margin: 25px;
         opacity: 90%;
         color: white;
+        font-family: 'Aboreto',cursive;
     }
 
     p {
@@ -271,6 +268,7 @@ const LeftSide = styled.div`
         opacity: 90%;
         color: white;  
         margin-left: 8%;
+        font-family: 'Playfair Display',serif;
     }
 `
 const RigtSide = styled.div`

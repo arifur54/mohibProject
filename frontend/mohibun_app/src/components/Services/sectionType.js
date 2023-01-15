@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 function sectionT(props) {
@@ -10,15 +10,17 @@ function sectionT(props) {
   let paragraph2 = props.paragraph2;
   let paragraph3 = props.paragraph3;
   let paragraph4 = props.paragraph4;
+  let paragraph5 = props.paragraph5;
   let img1, img2, img3, img4, img5, img6, img7;
+  let link = props.link
 
-  for(let x = 0; x < props.images.length; x++){
+  for (let x = 0; x < props.images.length; x++) {
     img1 = props.images[0];
     img2 = props.images[1];
     img3 = props.images[2];
     img4 = props.images[3];
     img5 = props.images[4];
-}
+  }
 
 
   const OurServiceWrapper = styled.div`
@@ -38,11 +40,11 @@ function sectionT(props) {
 `
   return (
     <Wrapper>
-       <OurServiceWrapper>
-          <h1  className="text-center display-4 ">{type }</h1>
-        </OurServiceWrapper>
-        <div>
-          <TitleWrapper>
+      <OurServiceWrapper>
+        <h1 className="text-center display-4 ">{type}</h1>
+      </OurServiceWrapper>
+      <div>
+        <TitleWrapper>
           <div className='d-flex justify-content-center align-items-center'>
             <div className='d-none d-sm-block'>
               <img className='img-fluid' src={img2} />
@@ -54,33 +56,39 @@ function sectionT(props) {
               <img className='img-fluid' src={img4} />
             </div>
             <div className='d-none d-lg-block'>
-              <img className='img-fluid' src={img5} /> 
+              <img className='img-fluid' src={img5} />
             </div>
           </div>
-          </TitleWrapper>
+        </TitleWrapper>
         <div className='container'>
           <ContentWrapper>
             <h2>{title}</h2>
-              { paragraph1 && paragraph2 && paragraph3 && paragraph4 &&
-                <div className='row'>
-                  <div className='col-md-7 col-sm-12'>
-                  <p className='text-lg-start text-center'>{paragraph1}</p> 
-                  <p className='text-lg-start text-center'>{paragraph2}</p>
-                  </div>
-                  <div className='col-md-5 col-sm-12'>
-                    <img className='img-fluid' src={img5} />
-                  </div>
-                  <div className='col-md-7 col-sm-12'>
-                    <p className='text-lg-start text-center'>{paragraph3}</p>  
-                    <p className='text-lg-start text-center'>{paragraph4}</p> 
-                  </div>
-                  <div className='col-md-5 col-sm-12'>
-                    <img className='img-fluid' src={img4} />
-                  </div>
-                </div>
-                
-              }
-              {/* { paragraph2 && 
+
+            <div className='row'>
+              <div className='col-md-7 col-sm-12'>
+                <p className='text-lg-start text-center'>{paragraph1}</p>
+                <p className='text-lg-start text-center'>{paragraph2}</p>
+              </div>
+              <div className='col-md-5 col-sm-12'>
+                <img className='img-fluid' src={img5} />
+              </div>
+              <div className='col-md-7 col-sm-12'>
+                <p className='text-lg-start text-center'>{paragraph3}</p>
+                <p className='text-lg-start text-center'>{paragraph4}</p>
+                <p className='text-lg-start text-center'>{paragraph5}</p>
+              </div>
+              <div className='col-md-5 col-sm-12'>
+                <img className='img-fluid' src={img4} />
+              </div>
+              <div className='col-md-6 col-sm-12'>
+                <Link className='btn' id="btn-custom" to={link}>Click Here To View More Of Our Work</Link>
+              </div>
+              <div className='col-md-6 col-sm-12'>
+                <Link className='btn' id="btn-custom" to="/contactus">Click Here To Contact us</Link>
+              </div>
+            </div>
+
+            {/* { paragraph2 && 
                 <div className='row'>
                  <div className='col-md-7 col-sm-12'>
                   <p className='text-lg-start text-center'>{paragraph2}</p> 
@@ -110,7 +118,7 @@ function sectionT(props) {
                   </div>
                 </div>  
               } */}
-              <Link className='btn' id="btn-custom" to="/projects/kitchen">Click Here To View More Of Our Work</Link>
+        
           </ContentWrapper>
         </div>
       </div>
@@ -140,7 +148,7 @@ function sectionT(props) {
 //   }else{
 //     return <AltDiv />
 //   }
-  
+
 // }
 
 
@@ -173,6 +181,7 @@ const Wrapper = styled.div`
     opacity: 80%;
     color: black;
     font-size: 1.5em;
+    font-family: 'Playfair Display', serif;
   }
   img {
     padding: 2px;
